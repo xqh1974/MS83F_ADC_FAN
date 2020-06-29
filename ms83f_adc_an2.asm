@@ -1,0 +1,192 @@
+//Deviec:MS83Fxx02
+//-----------------------Variable---------------------------------
+		_Buff_AN2		EQU		78H
+//-----------------------Variable END---------------------------------
+		ORG		0000H
+		LJUMP 	798H 			//0000 	3F98
+		ORG		0798H
+		CLRR 	STATUS 			//0798 	0103
+		LJUMP 	7A7H 			//0799 	3FA7
+
+		//;MS83F_ADC_AN2.C: 62: ANSEL = 0B00000100;
+		LDWI 	4H 			//079A 	2A04
+		STR 	11H 			//079B 	0191
+
+		//;MS83F_ADC_AN2.C: 63: ADCON1 = 0B01100000;
+		LDWI 	60H 			//079C 	2A60
+		STR 	1FH 			//079D 	019F
+		RET		 					//079E 	0004
+
+		//;MS83F_ADC_AN2.C: 75: unsigned char a;
+		//;MS83F_ADC_AN2.C: 77: for(a=0;a<6;a++)
+		CLRR 	70H 			//079F 	0170
+		ORG		07A0H
+		CLRWDT	 			//07A0 	0001
+		LDWI 	6H 			//07A1 	2A06
+		INCR	70H,1 			//07A2 	09F0
+		SUBWR 	70H,0 			//07A3 	0C70
+		BTSC 	STATUS,0 		//07A4 	1403
+		RET		 					//07A5 	0004
+		LJUMP 	7A0H 			//07A6 	3FA0
+
+		//;MS83F_ADC_AN2.C: 117: DEVICE_INIT();
+		LCALL 	7B3H 			//07A7 	37B3
+		ORG		07A8H
+
+		//;MS83F_ADC_AN2.C: 118: ADC_INIT();
+		LCALL 	79AH 			//07A8 	379A
+
+		//;MS83F_ADC_AN2.C: 119: while(1)
+		LDWI 	2H 			//07A9 	2A02
+
+		//;MS83F_ADC_AN2.C: 120: {
+		//;MS83F_ADC_AN2.C: 121: Buff_AN2 = GET_ADC_VALUE(2,0);
+		CLRR 	71H 			//07AA 	0171
+		LCALL 	7C8H 			//07AB 	37C8
+		LDR 	72H,0 			//07AC 	0872
+		STR 	79H 			//07AD 	01F9
+		LDR 	71H,0 			//07AE 	0871
+		STR 	78H 			//07AF 	01F8
+		ORG		07B0H
+
+		//;MS83F_ADC_AN2.C: 122: _nop();
+		NOP		 					//07B0 	0000
+
+		//;MS83F_ADC_AN2.C: 123: _nop();
+		NOP		 					//07B1 	0000
+		LJUMP 	7A9H 			//07B2 	3FA9
+
+		//;MS83F_ADC_AN2.C: 35: OSCCON = 0B01010001;
+		LDWI 	51H 			//07B3 	2A51
+		BSR 	STATUS,5 		//07B4 	1A83
+		STR 	FH 			//07B5 	018F
+
+		//;MS83F_ADC_AN2.C: 39: INTCON = 0B00000000;
+		CLRR 	INTCON 			//07B6 	010B
+
+		//;MS83F_ADC_AN2.C: 41: CMCON0 = 0B00000111;
+		LDWI 	7H 			//07B7 	2A07
+		ORG		07B8H
+		BCR 	STATUS,5 		//07B8 	1283
+		STR 	19H 			//07B9 	0199
+
+		//;MS83F_ADC_AN2.C: 43: PORTA = 0B00000000;
+		CLRR 	5H 			//07BA 	0105
+
+		//;MS83F_ADC_AN2.C: 44: TRISA = 0B11111111;
+		LDWI 	FFH 			//07BB 	2AFF
+		BSR 	STATUS,5 		//07BC 	1A83
+		STR 	5H 			//07BD 	0185
+
+		//;MS83F_ADC_AN2.C: 45: WPUA = 0B00000000;
+		CLRR 	15H 			//07BE 	0115
+
+		//;MS83F_ADC_AN2.C: 47: PORTC = 0B00000000;
+		BCR 	STATUS,5 		//07BF 	1283
+		ORG		07C0H
+		CLRR 	7H 			//07C0 	0107
+
+		//;MS83F_ADC_AN2.C: 48: TRISC = 0B00111111;
+		LDWI 	3FH 			//07C1 	2A3F
+		BSR 	STATUS,5 		//07C2 	1A83
+		STR 	7H 			//07C3 	0187
+
+		//;MS83F_ADC_AN2.C: 49: WPUC = 0B00000000;
+		CLRR 	8H 			//07C4 	0108
+
+		//;MS83F_ADC_AN2.C: 51: OPTION = 0B00001000;
+		LDWI 	8H 			//07C5 	2A08
+		STR 	1H 			//07C6 	0181
+		RET		 					//07C7 	0004
+		ORG		07C8H
+		STR 	74H 			//07C8 	01F4
+
+		//;MS83F_ADC_AN2.C: 92: unsigned int TempADCBuffer=0;
+		CLRR 	76H 			//07C9 	0176
+		CLRR 	77H 			//07CA 	0177
+
+		//;MS83F_ADC_AN2.C: 94: TempAdcon0 = (ChannelNO<<2);
+		STR 	73H 			//07CB 	01F3
+		BCR 	STATUS,0 		//07CC 	1003
+		RLR 	73H,1 			//07CD 	05F3
+		BCR 	STATUS,0 		//07CE 	1003
+		RLR 	73H,0 			//07CF 	0573
+		ORG		07D0H
+		STR 	75H 			//07D0 	01F5
+
+		//;MS83F_ADC_AN2.C: 95: if(Vref==0) {TempAdcon0 |= 0b10000001;}
+		LDR 	71H,1 			//07D1 	08F1
+		BTSS 	STATUS,2 		//07D2 	1D03
+		LJUMP 	7D6H 			//07D3 	3FD6
+		LDWI 	81H 			//07D4 	2A81
+		LJUMP 	7E1H 			//07D5 	3FE1
+
+		//;MS83F_ADC_AN2.C: 96: else if(Vref==1) {TempAdcon0 |= 0b10100001;}
+		DECRSZ 	71H,0 		//07D6 	0E71
+		LJUMP 	7DAH 			//07D7 	3FDA
+		ORG		07D8H
+		LDWI 	A1H 			//07D8 	2AA1
+		LJUMP 	7E1H 			//07D9 	3FE1
+
+		//;MS83F_ADC_AN2.C: 97: else if(Vref==2) {TempAdcon0 |= 0b11000001;}
+		LDR 	71H,0 			//07DA 	0871
+		XORWI 	2H 			//07DB 	2602
+		BTSS 	STATUS,2 		//07DC 	1D03
+		LJUMP 	7E0H 			//07DD 	3FE0
+		LDWI 	C1H 			//07DE 	2AC1
+		LJUMP 	7E1H 			//07DF 	3FE1
+		ORG		07E0H
+
+		//;MS83F_ADC_AN2.C: 98: else {TempAdcon0 |= 0b11100001;}
+		LDWI 	E1H 			//07E0 	2AE1
+		IORWR 	75H,1 			//07E1 	03F5
+
+		//;MS83F_ADC_AN2.C: 99: ADCON0 = TempAdcon0;
+		LDR 	75H,0 			//07E2 	0875
+		BCR 	STATUS,5 		//07E3 	1283
+		BCR 	STATUS,6 		//07E4 	1303
+		STR 	1FH 			//07E5 	019F
+
+		//;MS83F_ADC_AN2.C: 100: DELAY_30US();
+		LCALL 	79FH 			//07E6 	379F
+
+		//;MS83F_ADC_AN2.C: 101: GO_DONE = 1;
+		BCR 	STATUS,5 		//07E7 	1283
+		ORG		07E8H
+		BCR 	STATUS,6 		//07E8 	1303
+		BSR 	1FH,1 			//07E9 	189F
+
+		//;MS83F_ADC_AN2.C: 102: while(GO_DONE==1) asm("clrwdt");
+		BCR 	STATUS,5 		//07EA 	1283
+		BCR 	STATUS,6 		//07EB 	1303
+		BTSS 	1FH,1 			//07EC 	1C9F
+		LJUMP 	7F0H 			//07ED 	3FF0
+		CLRWDT	 			//07EE 	0001
+		LJUMP 	7EAH 			//07EF 	3FEA
+		ORG		07F0H
+
+		//;MS83F_ADC_AN2.C: 103: TempADCBuffer = ADRESH;
+		LDR 	1EH,0 			//07F0 	081E
+		STR 	76H 			//07F1 	01F6
+		CLRR 	77H 			//07F2 	0177
+
+		//;MS83F_ADC_AN2.C: 104: TempADCBuffer = (TempADCBuffer<<8)|ADRESL;
+		STR 	73H 			//07F3 	01F3
+		BSR 	STATUS,5 		//07F4 	1A83
+		LDR 	1EH,0 			//07F5 	081E
+		STR 	76H 			//07F6 	01F6
+		LDR 	73H,0 			//07F7 	0873
+		ORG		07F8H
+		STR 	77H 			//07F8 	01F7
+
+		//;MS83F_ADC_AN2.C: 105: ADON = 0;
+		BCR 	STATUS,5 		//07F9 	1283
+		BCR 	1FH,0 			//07FA 	101F
+
+		//;MS83F_ADC_AN2.C: 106: return(TempADCBuffer);
+		LDR 	77H,0 			//07FB 	0877
+		STR 	72H 			//07FC 	01F2
+		LDR 	76H,0 			//07FD 	0876
+		STR 	71H 			//07FE 	01F1
+		RET		 					//07FF 	0004
+			END

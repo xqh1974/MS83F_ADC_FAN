@@ -1,0 +1,2281 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
+                                                                                               Sat Jun 20 17:21:23 2020
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
+     1                           	processor	16F685
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	text522,local,class=CODE,delta=2
+     5                           	psect	cinit,global,class=CODE,delta=2
+     6                           	psect	bitbssCOMMON,global,bit,class=COMMON,space=1,delta=1
+     7                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+     8                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    10                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    11                           	psect	maintext,global,class=CODE,delta=2
+    12                           	psect	text523,local,class=CODE,delta=2
+    13                           	psect	text524,local,class=CODE,delta=2
+    14                           	psect	text525,local,class=CODE,delta=2
+    15                           	psect	text526,local,class=CODE,delta=2
+    16                           	psect	text527,local,class=CODE,delta=2
+    17                           	psect	text528,local,class=CODE,delta=2
+    18                           	psect	text529,local,class=CODE,delta=2
+    19                           	psect	text530,local,class=CODE,delta=2
+    20                           	psect	text531,local,class=CODE,delta=2
+    21                           	psect	text532,local,class=CODE,delta=2
+    22                           	psect	text533,local,class=CODE,delta=2
+    23                           	psect	text534,local,class=CODE,delta=2
+    24                           	psect	text535,local,class=CODE,delta=2
+    25                           	psect	text536,local,class=CODE,delta=2
+    26                           	psect	text537,local,class=CODE,delta=2
+    27                           	psect	text538,local,class=CODE,delta=2
+    28                           	psect	intentry,global,class=CODE,delta=2
+    29                           	psect	text539,local,class=CODE,delta=2
+    30                           	psect	pa_nodes,global,class=CODE,delta=2
+    31                           	dabs	1,0x19D,1
+    32                           	dabs	1,0x19E,1
+    33                           	dabs	1,0x19E,1
+    34                           	dabs	1,0x19E,1
+    35                           	dabs	1,0x18C,1
+    36                           	dabs	1,0x19E,1
+    37                           	dabs	1,0x19E,1
+    38                           	dabs	1,0x19E,1
+    39                           	dabs	1,0x19E,1
+    40                           	dabs	1,0x19D,1
+    41                           	dabs	1,0x19D,1
+    42                           	dabs	1,0x19D,1
+    43                           	dabs	1,0x19D,1
+    44                           	dabs	1,0x19D,1
+    45                           	dabs	1,0x18C,1
+    46                           	dabs	1,0x7E,2
+    47  000A                     
+    48                           	psect	text522
+    49  0000                     __ptext522:	
+    50  019D                     _PSTRCON	set	413	;_PSTRCON
+    51  019E                     _SRCON	set	414	;_SRCON
+    52  0CF5                     _C1SEN	set	3317	;_C1SEN
+    53  0CF4                     _C2REN	set	3316	;_C2REN
+    54  0C67                     _EEPGD	set	3175	;_EEPGD
+    55  0CF2                     _PULSR	set	3314	;_PULSR
+    56  0CF3                     _PULSS	set	3315	;_PULSS
+    57  0CF6                     _SR0	set	3318	;_SR0
+    58  0CF7                     _SR1	set	3319	;_SR1
+    59  0CE8                     _STRA	set	3304	;_STRA
+    60  0CE9                     _STRB	set	3305	;_STRB
+    61  0CEA                     _STRC	set	3306	;_STRC
+    62  0CEB                     _STRD	set	3307	;_STRD
+    63  0CEC                     _STRSYNC	set	3308	;_STRSYNC
+    64  0C62                     _WREN	set	3170	;_WREN
+    65  001F                     _ADCON0	set	31
+    66  001E                     _ADRESH	set	30
+    67  0019                     _CMCON0	set	25
+    68  000B                     _INTCON	set	11
+    69  0005                     _PORTA	set	5
+    70  0007                     _PORTC	set	7
+    71  00F8                     _ADON	set	248
+    72  005F                     _GIE	set	95
+    73  00F9                     _GO_DONE	set	249
+    74  005C                     _INTE	set	92
+    75  0059                     _INTF	set	89
+    76  002E                     _PA6	set	46
+    77  0039                     _PC1	set	57
+    78  003B                     _PC3	set	59
+    79  00DC                     _SLVREN	set	220
+    80  00C0                     _SWDTEN	set	192
+    81  009F                     _ADCON1	set	159
+    82  009E                     _ADRESL	set	158
+    83  0091                     _ANSEL	set	145
+    84  0081                     _OPTION	set	129
+    85  008F                     _OSCCON	set	143
+    86  0085                     _TRISA	set	133
+    87  0087                     _TRISC	set	135
+    88  0095                     _WPUA	set	149
+    89  0088                     _WPUC	set	136
+    90  040E                     _INTEDG	set	1038
+    91  043B                     _TRISC3	set	1083
+    92  0114                     _PR4L	set	276
+    93  010F                     _PWM3CR0	set	271
+    94  0110                     _PWM3CR1	set	272
+    95  0115                     _PWM4CR0	set	277
+    96  0116                     _PWM4CR1	set	278
+    97  011B                     _PWM5CR0	set	283
+    98  011C                     _PWM5CR1	set	284
+    99  0117                     _T4CKDIV	set	279
+   100  0113                     _TMR4H	set	275
+   101  0112                     _TMR4L	set	274
+   102  08B0                     _TMR4IF	set	2224
+   103  08B2                     _TMR4ON	set	2226
+   104                           
+   105                           	psect	cinit
+   106  0215                     start_initialization:	
+   107                           
+   108                           ; Clear objects allocated to BITCOMMON
+   109  0215  01FA               	clrf	(__pbitbssCOMMON/(0+8))& (0+127)
+   110                           
+   111                           ; Clear objects allocated to COMMON
+   112  0216  01FB               	clrf	__pbssCOMMON& (0+127)
+   113                           
+   114                           ; Clear objects allocated to BANK0
+   115  0217  01AC               	clrf	__pbssBANK0& (0+127)
+   116  0218  01AD               	clrf	(__pbssBANK0+1)& (0+127)
+   117  0219  01AE               	clrf	(__pbssBANK0+2)& (0+127)
+   118  021A  01AF               	clrf	(__pbssBANK0+3)& (0+127)
+   119  021B  01B0               	clrf	(__pbssBANK0+4)& (0+127)
+   120  021C  01B1               	clrf	(__pbssBANK0+5)& (0+127)
+   121  021D  01B2               	clrf	(__pbssBANK0+6)& (0+127)
+   122  021E  01B3               	clrf	(__pbssBANK0+7)& (0+127)
+   123  021F  01B4               	clrf	(__pbssBANK0+8)& (0+127)
+   124  0220                     end_of_initialization:	
+   125                           ;End of C runtime variable initialization code
+   126                           
+   127  0220  0183               	clrf	3
+   128  0221  28A3               	ljmp	_main	;jump to C main() function
+   129                           
+   130                           	psect	bitbssCOMMON
+   131  03D0                     __pbitbssCOMMON:	
+   132  03D0                     _is_led_on:	
+   133  03D0                     	ds	1
+   134                           
+   135                           	psect	bssCOMMON
+   136  007B                     __pbssCOMMON:	
+   137  007B                     GetKeyEvent@keytime:	
+   138  007B                     	ds	1
+   139                           
+   140                           	psect	bssBANK0
+   141  002C                     __pbssBANK0:	
+   142  002C                     _Buff_AN6:	
+   143  002C                     	ds	2
+   144  002E                     _Buff_AN7:	
+   145  002E                     	ds	2
+   146  0030                     _Val_Volt:	
+   147  0030                     	ds	2
+   148  0032                     _over_load_cnt:	
+   149  0032                     	ds	2
+   150  0034                     _fan_speed:	
+   151  0034                     	ds	1
+   152                           
+   153                           	psect	cstackCOMMON
+   154  0070                     __pcstackCOMMON:	
+   155  0070                     ?_DEVICE_INIT:	
+   156  0070                     ?_ADC_INIT:	
+   157                           ; 0 bytes @ 0x0
+   158                           
+   159  0070                     ?_DELAY_30US:	
+   160                           ; 0 bytes @ 0x0
+   161                           
+   162  0070                     ?_DELAY_1MS:	
+   163                           ; 0 bytes @ 0x0
+   164                           
+   165  0070                     ?_DELAY_MS:	
+   166                           ; 0 bytes @ 0x0
+   167                           
+   168  0070                     ?_PWM_INIT:	
+   169                           ; 0 bytes @ 0x0
+   170                           
+   171  0070                     ?_SET_PWM4_ON:	
+   172                           ; 0 bytes @ 0x0
+   173                           
+   174  0070                     ?_SET_FAN_SPEED:	
+   175                           ; 0 bytes @ 0x0
+   176                           
+   177  0070                     ?_ISR:	
+   178                           ; 0 bytes @ 0x0
+   179                           
+   180  0070                     ??_ISR:	
+   181                           ; 0 bytes @ 0x0
+   182                           
+   183  0070                     ?_INT_INIT:	
+   184                           ; 0 bytes @ 0x0
+   185                           
+   186  0070                     ?_SYS_SLEEP:	
+   187                           ; 0 bytes @ 0x0
+   188                           
+   189  0070                     ?_detect_block:	
+   190                           ; 0 bytes @ 0x0
+   191                           
+   192  0070                     ?_main:	
+   193                           ; 0 bytes @ 0x0
+   194                           
+   195  0070                     ?_GetKeyEvent:	
+   196                           ; 0 bytes @ 0x0
+   197                           
+   198                           
+   199                           ; 1 bytes @ 0x0
+   200  0070                     	ds	2
+   201  0072                     ??_DEVICE_INIT:	
+   202  0072                     ??_ADC_INIT:	
+   203                           ; 0 bytes @ 0x2
+   204                           
+   205  0072                     ??_DELAY_30US:	
+   206                           ; 0 bytes @ 0x2
+   207                           
+   208  0072                     ??_DELAY_1MS:	
+   209                           ; 0 bytes @ 0x2
+   210                           
+   211  0072                     ??_PWM_INIT:	
+   212                           ; 0 bytes @ 0x2
+   213                           
+   214  0072                     ??_SET_PWM4_ON:	
+   215                           ; 0 bytes @ 0x2
+   216                           
+   217  0072                     ??_INT_INIT:	
+   218                           ; 0 bytes @ 0x2
+   219                           
+   220  0072                     ??_SYS_SLEEP:	
+   221                           ; 0 bytes @ 0x2
+   222                           
+   223  0072                     ??_GetKeyEvent:	
+   224                           ; 0 bytes @ 0x2
+   225                           
+   226  0072                     ?___lwdiv:	
+   227                           ; 0 bytes @ 0x2
+   228                           
+   229  0072                     ?___lmul:	
+   230                           ; 2 bytes @ 0x2
+   231                           
+   232  0072                     DELAY_30US@a:	
+   233                           ; 4 bytes @ 0x2
+   234                           
+   235  0072                     DELAY_1MS@a:	
+   236                           ; 1 bytes @ 0x2
+   237                           
+   238  0072                     SET_PWM4_ON@duty:	
+   239                           ; 1 bytes @ 0x2
+   240                           
+   241  0072                     GetKeyEvent@key_event:	
+   242                           ; 1 bytes @ 0x2
+   243                           
+   244  0072                     ___lwdiv@divisor:	
+   245                           ; 1 bytes @ 0x2
+   246                           
+   247  0072                     ___lmul@multiplier:	
+   248                           ; 2 bytes @ 0x2
+   249                           
+   250                           
+   251                           ; 4 bytes @ 0x2
+   252  0072                     	ds	1
+   253  0073                     ??_DELAY_MS:	
+   254  0073                     ??_SET_FAN_SPEED:	
+   255                           ; 0 bytes @ 0x3
+   256                           
+   257  0073                     ?_GET_ADC_VALUE:	
+   258                           ; 0 bytes @ 0x3
+   259                           
+   260  0073                     GET_ADC_VALUE@Vref:	
+   261                           ; 2 bytes @ 0x3
+   262                           
+   263  0073                     DELAY_MS@Time:	
+   264                           ; 1 bytes @ 0x3
+   265                           
+   266  0073                     SET_FAN_SPEED@speed:	
+   267                           ; 1 bytes @ 0x3
+   268                           
+   269                           
+   270                           ; 1 bytes @ 0x3
+   271  0073                     	ds	1
+   272  0074                     DELAY_MS@a:	
+   273  0074                     ___lwdiv@dividend:	
+   274                           ; 1 bytes @ 0x4
+   275                           
+   276                           
+   277                           ; 2 bytes @ 0x4
+   278  0074                     	ds	1
+   279  0075                     ??_GET_ADC_VALUE:	
+   280                           
+   281                           ; 0 bytes @ 0x5
+   282  0075                     	ds	1
+   283  0076                     ??___lwdiv:	
+   284  0076                     GET_ADC_VALUE@ChannelNO:	
+   285                           ; 0 bytes @ 0x6
+   286                           
+   287  0076                     ___lwdiv@counter:	
+   288                           ; 1 bytes @ 0x6
+   289                           
+   290  0076                     ___lmul@multiplicand:	
+   291                           ; 1 bytes @ 0x6
+   292                           
+   293                           
+   294                           ; 4 bytes @ 0x6
+   295  0076                     	ds	1
+   296  0077                     GET_ADC_VALUE@TempADCBuffer:	
+   297  0077                     ___lwdiv@quotient:	
+   298                           ; 2 bytes @ 0x7
+   299                           
+   300                           
+   301                           ; 2 bytes @ 0x7
+   302  0077                     	ds	2
+   303  0079                     GET_ADC_VALUE@TempAdcon0:	
+   304                           
+   305                           ; 1 bytes @ 0x9
+   306  0079                     	ds	1
+   307  007A                     ??_main:	
+   308  007A                     ??___lmul:	
+   309                           ; 0 bytes @ 0xA
+   310                           
+   311                           
+   312                           	psect	cstackBANK0
+   313  0020                     __pcstackBANK0:	
+   314                           ; 0 bytes @ 0xA
+   315                           
+   316  0020                     ___lmul@product:	
+   317                           
+   318                           ; 4 bytes @ 0x0
+   319  0020                     	ds	4
+   320  0024                     ??_detect_block:	
+   321                           
+   322                           ; 0 bytes @ 0x4
+   323  0024                     	ds	5
+   324  0029                     detect_block@i:	
+   325                           
+   326                           ; 1 bytes @ 0x9
+   327  0029                     	ds	1
+   328  002A                     detect_block@limit:	
+   329                           
+   330                           ; 1 bytes @ 0xA
+   331  002A                     	ds	1
+   332  002B                     main@key:	
+   333                           
+   334                           ; 1 bytes @ 0xB
+   335  002B                     	ds	1
+   336                           
+   337                           	psect	maintext
+   338  00A3                     __pmaintext:	
+   339 ;;Data sizes: Strings 0, constant 0, data 0, bss 10, persistent 0 stack 0
+   340 ;;Auto spaces:   Size  Autos    Used
+   341 ;; COMMON          14     10      12
+   342 ;; BANK0           80     12      21
+   343 ;; BANK1           32      0       0
+   344 ;;
+   345 ;; Pointer list with targets:
+   346 ;; ?___lwdiv	unsigned int  size(1) Largest target is 0
+   347 ;;
+   348 ;; ?___lmul	unsigned long  size(1) Largest target is 0
+   349 ;;
+   350 ;; ?_GET_ADC_VALUE	unsigned int  size(1) Largest target is 0
+   351 ;;
+   352 ;;
+   353 ;; Critical Paths under _main in COMMON
+   354 ;;
+   355 ;;   _detect_block->_GET_ADC_VALUE
+   356 ;;   _detect_block->___lmul
+   357 ;;   _SET_FAN_SPEED->_SET_PWM4_ON
+   358 ;;   _DELAY_MS->_DELAY_1MS
+   359 ;;   _GET_ADC_VALUE->_DELAY_30US
+   360 ;;
+   361 ;; Critical Paths under _ISR in COMMON
+   362 ;;
+   363 ;;   None.
+   364 ;;
+   365 ;; Critical Paths under _main in BANK0
+   366 ;;
+   367 ;;   _main->_detect_block
+   368 ;;   _detect_block->___lmul
+   369 ;;
+   370 ;; Critical Paths under _ISR in BANK0
+   371 ;;
+   372 ;;   None.
+   373 ;;
+   374 ;; Critical Paths under _main in BANK1
+   375 ;;
+   376 ;;   None.
+   377 ;;
+   378 ;; Critical Paths under _ISR in BANK1
+   379 ;;
+   380 ;;   None.
+   381 ;;
+   382 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   383 ;;
+   384 ;;
+   385 ;;Call Graph Tables:
+   386 ;;
+   387 ;; ---------------------------------------------------------------------------------
+   388 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   389 ;; ---------------------------------------------------------------------------------
+   390 ;; (0) _main                                                 1     1      0    1057
+   391 ;;                                             11 BANK0      1     1      0
+   392 ;;                        _DEVICE_INIT
+   393 ;;                           _ADC_INIT
+   394 ;;                           _PWM_INIT
+   395 ;;                           _INT_INIT
+   396 ;;                        _GetKeyEvent
+   397 ;;                          _SYS_SLEEP
+   398 ;;                        _SET_PWM4_ON
+   399 ;;                      _SET_FAN_SPEED
+   400 ;;                           _DELAY_MS
+   401 ;;                       _detect_block
+   402 ;; ---------------------------------------------------------------------------------
+   403 ;; (1) _detect_block                                         7     7      0     809
+   404 ;;                                              4 BANK0      7     7      0
+   405 ;;                      _GET_ADC_VALUE
+   406 ;;                             ___lmul
+   407 ;;                            ___lwdiv
+   408 ;;                          _SYS_SLEEP
+   409 ;; ---------------------------------------------------------------------------------
+   410 ;; (2) _SYS_SLEEP                                            0     0      0       0
+   411 ;; ---------------------------------------------------------------------------------
+   412 ;; (1) _SET_FAN_SPEED                                        1     1      0      44
+   413 ;;                                              3 COMMON     1     1      0
+   414 ;;                        _SET_PWM4_ON
+   415 ;; ---------------------------------------------------------------------------------
+   416 ;; (1) _DELAY_MS                                             2     2      0      92
+   417 ;;                                              3 COMMON     2     2      0
+   418 ;;                          _DELAY_1MS
+   419 ;; ---------------------------------------------------------------------------------
+   420 ;; (2) _GET_ADC_VALUE                                        7     5      2     312
+   421 ;;                                              3 COMMON     7     5      2
+   422 ;;                         _DELAY_30US
+   423 ;; ---------------------------------------------------------------------------------
+   424 ;; (2) ___lmul                                              12     4      8     136
+   425 ;;                                              2 COMMON     8     0      8
+   426 ;;                                              0 BANK0      4     4      0
+   427 ;; ---------------------------------------------------------------------------------
+   428 ;; (2) ___lwdiv                                              7     3      4     241
+   429 ;;                                              2 COMMON     7     3      4
+   430 ;; ---------------------------------------------------------------------------------
+   431 ;; (1) _GetKeyEvent                                          1     1      0      25
+   432 ;;                                              2 COMMON     1     1      0
+   433 ;; ---------------------------------------------------------------------------------
+   434 ;; (1) _INT_INIT                                             0     0      0       0
+   435 ;; ---------------------------------------------------------------------------------
+   436 ;; (2) _SET_PWM4_ON                                          1     1      0      22
+   437 ;;                                              2 COMMON     1     1      0
+   438 ;; ---------------------------------------------------------------------------------
+   439 ;; (1) _PWM_INIT                                             0     0      0       0
+   440 ;; ---------------------------------------------------------------------------------
+   441 ;; (2) _DELAY_1MS                                            1     1      0      46
+   442 ;;                                              2 COMMON     1     1      0
+   443 ;; ---------------------------------------------------------------------------------
+   444 ;; (3) _DELAY_30US                                           1     1      0      68
+   445 ;;                                              2 COMMON     1     1      0
+   446 ;; ---------------------------------------------------------------------------------
+   447 ;; (1) _ADC_INIT                                             0     0      0       0
+   448 ;; ---------------------------------------------------------------------------------
+   449 ;; (1) _DEVICE_INIT                                          0     0      0       0
+   450 ;; ---------------------------------------------------------------------------------
+   451 ;; Estimated maximum stack depth 3
+   452 ;; ---------------------------------------------------------------------------------
+   453 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   454 ;; ---------------------------------------------------------------------------------
+   455 ;; (4) _ISR                                                  2     2      0       0
+   456 ;;                                              0 COMMON     2     2      0
+   457 ;; ---------------------------------------------------------------------------------
+   458 ;; Estimated maximum stack depth 4
+   459 ;; ---------------------------------------------------------------------------------
+   460 ;; Call Graph Graphs:
+   461 ;; _main (ROOT)
+   462 ;;   _DEVICE_INIT
+   463 ;;   _ADC_INIT
+   464 ;;   _PWM_INIT
+   465 ;;   _INT_INIT
+   466 ;;   _GetKeyEvent
+   467 ;;   _SYS_SLEEP
+   468 ;;   _SET_PWM4_ON
+   469 ;;   _SET_FAN_SPEED
+   470 ;;     _SET_PWM4_ON
+   471 ;;   _DELAY_MS
+   472 ;;     _DELAY_1MS
+   473 ;;   _detect_block
+   474 ;;     _GET_ADC_VALUE
+   475 ;;       _DELAY_30US
+   476 ;;     ___lmul
+   477 ;;     ___lwdiv
+   478 ;;     _SYS_SLEEP
+   479 ;;
+   480 ;; _ISR (ROOT)
+   481 ;;
+   482 ;; Address spaces:
+   483 ;;Name               Size   Autos  Total    Cost      Usage
+   484 ;;BITCOMMON            E      0       1       0        7.1%
+   485 ;;EEDATA             100      0       0       0        0.0%
+   486 ;;NULL                 0      0       0       0        0.0%
+   487 ;;CODE                 0      0       0       0        0.0%
+   488 ;;COMMON               E      A       C       1       85.7%
+   489 ;;BITSFR0              0      0       0       1        0.0%
+   490 ;;SFR0                 0      0       0       1        0.0%
+   491 ;;BITSFR1              0      0       0       2        0.0%
+   492 ;;SFR1                 0      0       0       2        0.0%
+   493 ;;STACK                0      0       3       2        0.0%
+   494 ;;BITBANK0            50      0       0       3        0.0%
+   495 ;;BANK0               50      C      15       4       26.3%
+   496 ;;BITBANK1            20      0       0       5        0.0%
+   497 ;;BITSFR2              0      0       0       5        0.0%
+   498 ;;SFR2                 0      0       0       5        0.0%
+   499 ;;BANK1               20      0       0       6        0.0%
+   500 ;;ABS                  0      0      21       7        0.0%
+   501 ;;DATA                 0      0      24       8        0.0%
+   502                           
+   503                           
+   504 ;; *************** function _main *****************
+   505 ;; Defined at:
+   506 ;;		line 296 in file "MS83F_ADC_FAN.C"
+   507 ;; Parameters:    Size  Location     Type
+   508 ;;		None
+   509 ;; Auto vars:     Size  Location     Type
+   510 ;;  key             1   11[BANK0 ] unsigned char 
+   511 ;; Return value:  Size  Location     Type
+   512 ;;		None               void
+   513 ;; Registers used:
+   514 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   515 ;; Tracked objects:
+   516 ;;		On entry : 17F/0
+   517 ;;		On exit  : 0/0
+   518 ;;		Unchanged: 0/0
+   519 ;; Data sizes:     COMMON   BANK0   BANK1
+   520 ;;      Params:         0       0       0
+   521 ;;      Locals:         0       1       0
+   522 ;;      Temps:          0       0       0
+   523 ;;      Totals:         0       1       0
+   524 ;;Total ram usage:        1 bytes
+   525 ;; Hardware stack levels required when called:    4
+   526 ;; This function calls:
+   527 ;;		_DEVICE_INIT
+   528 ;;		_ADC_INIT
+   529 ;;		_PWM_INIT
+   530 ;;		_INT_INIT
+   531 ;;		_GetKeyEvent
+   532 ;;		_SYS_SLEEP
+   533 ;;		_SET_PWM4_ON
+   534 ;;		_SET_FAN_SPEED
+   535 ;;		_DELAY_MS
+   536 ;;		_detect_block
+   537 ;; This function is called by:
+   538 ;;		Startup code after reset
+   539 ;; This function uses a non-reentrant model
+   540 ;;
+   541  00A3                     _main:	
+   542                           
+   543                           ;MS83F_ADC_FAN.C: 297: DEVICE_INIT();
+   544                           
+   545                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   546  00A3  21EC               	fcall	_DEVICE_INIT
+   547                           
+   548                           ;MS83F_ADC_FAN.C: 298: ADC_INIT();
+   549  00A4  2255               	fcall	_ADC_INIT
+   550                           
+   551                           ;MS83F_ADC_FAN.C: 299: PWM_INIT();
+   552  00A5  2236               	fcall	_PWM_INIT
+   553                           
+   554                           ;MS83F_ADC_FAN.C: 300: INT_INIT();
+   555  00A6  224F               	fcall	_INT_INIT
+   556  00A7                     l1169:	
+   557                           ;MS83F_ADC_FAN.C: 301: while(1)
+   558                           
+   559                           
+   560                           ;MS83F_ADC_FAN.C: 302: {
+   561                           ;MS83F_ADC_FAN.C: 303: char key = GetKeyEvent();
+   562  00A7  219A               	fcall	_GetKeyEvent
+   563  00A8  00AB               	movwf	main@key
+   564                           
+   565                           ;MS83F_ADC_FAN.C: 304: if(key)
+   566  00A9  082B               	movf	main@key,w
+   567  00AA  1903               	btfsc	3,2
+   568  00AB  28D3               	goto	l3012
+   569                           
+   570                           ;MS83F_ADC_FAN.C: 305: {
+   571                           ;MS83F_ADC_FAN.C: 306: if(key==2)
+   572  00AC  082B               	movf	main@key,w
+   573  00AD  3A02               	xorlw	2
+   574  00AE  1D03               	skipz
+   575  00AF  28C0               	goto	l1171
+   576                           
+   577                           ;MS83F_ADC_FAN.C: 307: {
+   578                           ;MS83F_ADC_FAN.C: 308: if(is_led_on)
+   579  00B0  1C7A               	btfss	_is_led_on/(0+8),_is_led_on& (0+7)
+   580  00B1  28B6               	goto	l1172
+   581                           
+   582                           ;MS83F_ADC_FAN.C: 309: {
+   583                           ;MS83F_ADC_FAN.C: 310: is_led_on=0;
+   584  00B2  107A               	bcf	_is_led_on/(0+8),_is_led_on& (0+7)
+   585                           
+   586                           ;MS83F_ADC_FAN.C: 311: PA6 = 0;
+   587  00B3  1305               	bcf	5,6
+   588  00B4                     l2988:	
+   589                           
+   590                           ;MS83F_ADC_FAN.C: 312: SYS_SLEEP();
+   591  00B4  21D3               	fcall	_SYS_SLEEP
+   592                           
+   593                           ;MS83F_ADC_FAN.C: 313: }
+   594  00B5  28D3               	goto	l3012
+   595  00B6                     l1172:	
+   596                           
+   597                           ;MS83F_ADC_FAN.C: 314: else
+   598                           ;MS83F_ADC_FAN.C: 315: {
+   599                           ;MS83F_ADC_FAN.C: 316: is_led_on=1;
+   600  00B6  147A               	bsf	_is_led_on/(0+8),_is_led_on& (0+7)
+   601                           
+   602                           ;MS83F_ADC_FAN.C: 317: PA6 = 1;
+   603  00B7  1705               	bsf	5,6
+   604                           
+   605                           ;MS83F_ADC_FAN.C: 318: if(fan_speed)
+   606  00B8  0834               	movf	_fan_speed,w	;volatile
+   607  00B9  1903               	btfsc	3,2
+   608  00BA  28D3               	goto	l3012
+   609                           
+   610                           ;MS83F_ADC_FAN.C: 319: {
+   611                           ;MS83F_ADC_FAN.C: 320: SET_PWM4_ON(0);
+   612  00BB  3000               	movlw	0
+   613  00BC  21B8               	fcall	_SET_PWM4_ON
+   614                           
+   615                           ;MS83F_ADC_FAN.C: 321: fan_speed=0;
+   616  00BD  1283               	bcf	3,5	;RP0=0, select bank0
+   617  00BE  01B4               	clrf	_fan_speed	;volatile
+   618  00BF  28D3               	goto	l3012
+   619  00C0                     l1171:	
+   620                           
+   621                           ;MS83F_ADC_FAN.C: 325: else if(is_led_on==0)
+   622  00C0  187A               	btfsc	_is_led_on/(0+8),_is_led_on& (0+7)
+   623  00C1  28D3               	goto	l3012
+   624                           
+   625                           ;MS83F_ADC_FAN.C: 326: {
+   626                           ;MS83F_ADC_FAN.C: 327: fan_speed++;
+   627  00C2  0AB4               	incf	_fan_speed,f	;volatile
+   628                           
+   629                           ;MS83F_ADC_FAN.C: 328: if(fan_speed>3)
+   630  00C3  3004               	movlw	4
+   631  00C4  0234               	subwf	_fan_speed,w	;volatile
+   632  00C5  1C03               	skipc
+   633  00C6  28CB               	goto	l3006
+   634                           
+   635                           ;MS83F_ADC_FAN.C: 329: {
+   636                           ;MS83F_ADC_FAN.C: 330: fan_speed=0;
+   637  00C7  01B4               	clrf	_fan_speed	;volatile
+   638                           
+   639                           ;MS83F_ADC_FAN.C: 331: SET_FAN_SPEED(0);
+   640  00C8  3000               	movlw	0
+   641  00C9  2201               	fcall	_SET_FAN_SPEED
+   642  00CA  28B4               	goto	l2988
+   643  00CB                     l3006:	
+   644                           
+   645                           ;MS83F_ADC_FAN.C: 334: else
+   646                           ;MS83F_ADC_FAN.C: 335: {
+   647                           ;MS83F_ADC_FAN.C: 336: SET_FAN_SPEED(3);
+   648  00CB  3003               	movlw	3
+   649  00CC  2201               	fcall	_SET_FAN_SPEED
+   650                           
+   651                           ;MS83F_ADC_FAN.C: 337: DELAY_MS(100);
+   652  00CD  3064               	movlw	100
+   653  00CE  222D               	fcall	_DELAY_MS
+   654                           
+   655                           ;MS83F_ADC_FAN.C: 338: over_load_cnt=0;
+   656  00CF  1283               	bcf	3,5	;RP0=0, select bank0
+   657  00D0  1303               	bcf	3,6	;RP1=0, select bank0
+   658  00D1  01B2               	clrf	_over_load_cnt	;volatile
+   659  00D2  01B3               	clrf	_over_load_cnt+1	;volatile
+   660  00D3                     l3012:	
+   661                           
+   662                           ;MS83F_ADC_FAN.C: 339: }
+   663                           ;MS83F_ADC_FAN.C: 340: }
+   664                           ;MS83F_ADC_FAN.C: 341: }
+   665                           ;MS83F_ADC_FAN.C: 343: if(fan_speed)
+   666  00D3  0834               	movf	_fan_speed,w	;volatile
+   667  00D4  1903               	btfsc	3,2
+   668  00D5  2902               	goto	l3044
+   669                           
+   670                           ;MS83F_ADC_FAN.C: 344: {
+   671                           ;MS83F_ADC_FAN.C: 345: over_load_cnt++;
+   672  00D6  0AB2               	incf	_over_load_cnt,f	;volatile
+   673  00D7  1903               	skipnz
+   674  00D8  0AB3               	incf	_over_load_cnt+1,f	;volatile
+   675                           
+   676                           ;MS83F_ADC_FAN.C: 346: if(over_load_cnt>=10)
+   677  00D9  3000               	movlw	0
+   678  00DA  0233               	subwf	_over_load_cnt+1,w	;volatile
+   679  00DB  300A               	movlw	10
+   680  00DC  1903               	skipnz
+   681  00DD  0232               	subwf	_over_load_cnt,w	;volatile
+   682  00DE  1C03               	skipc
+   683  00DF  28FF               	goto	l3042
+   684                           
+   685                           ;MS83F_ADC_FAN.C: 347: {
+   686                           ;MS83F_ADC_FAN.C: 349: TRISC3 = 1;
+   687  00E0  1683               	bsf	3,5	;RP0=1, select bank1
+   688  00E1  1587               	bsf	7,3
+   689                           
+   690                           ;MS83F_ADC_FAN.C: 350: PWM4CR0 = 0;
+   691  00E2  1283               	bcf	3,5	;RP0=0, select bank2
+   692  00E3  1703               	bsf	3,6	;RP1=1, select bank2
+   693  00E4  0195               	clrf	21	;volatile
+   694                           
+   695                           ;MS83F_ADC_FAN.C: 351: PWM4CR1 =0;
+   696  00E5  0196               	clrf	22	;volatile
+   697                           
+   698                           ;MS83F_ADC_FAN.C: 352: T4CKDIV = 0;
+   699  00E6  0197               	clrf	23	;volatile
+   700                           
+   701                           ;MS83F_ADC_FAN.C: 353: TMR4H = 0;
+   702  00E7  0193               	clrf	19	;volatile
+   703                           
+   704                           ;MS83F_ADC_FAN.C: 354: TMR4L = 0;
+   705  00E8  0192               	clrf	18	;volatile
+   706                           
+   707                           ;MS83F_ADC_FAN.C: 355: PR4L = 0;
+   708  00E9  0194               	clrf	20	;volatile
+   709  00EA  3001               	movlw	1
+   710                           
+   711                           ;MS83F_ADC_FAN.C: 356: TMR4IF = 0;
+   712  00EB  1016               	bcf	22,0
+   713                           
+   714                           ;MS83F_ADC_FAN.C: 357: TMR4ON = 0;
+   715  00EC  1116               	bcf	22,2
+   716                           
+   717                           ;MS83F_ADC_FAN.C: 358: DELAY_MS(1);
+   718  00ED  222D               	fcall	_DELAY_MS
+   719  00EE  3005               	movlw	5
+   720                           
+   721                           ;MS83F_ADC_FAN.C: 359: TRISC3 = 0;
+   722  00EF  1683               	bsf	3,5	;RP0=1, select bank1
+   723  00F0  1303               	bcf	3,6	;RP1=0, select bank1
+   724  00F1  1187               	bcf	7,3
+   725                           
+   726                           ;MS83F_ADC_FAN.C: 360: PC3=1;
+   727  00F2  1283               	bcf	3,5	;RP0=0, select bank0
+   728  00F3  1587               	bsf	7,3
+   729                           
+   730                           ;MS83F_ADC_FAN.C: 361: DELAY_MS(5);
+   731  00F4  222D               	fcall	_DELAY_MS
+   732                           
+   733                           ;MS83F_ADC_FAN.C: 362: detect_block();
+   734  00F5  200B               	fcall	_detect_block
+   735                           
+   736                           ;MS83F_ADC_FAN.C: 363: SET_FAN_SPEED(fan_speed);
+   737  00F6  0834               	movf	_fan_speed,w	;volatile
+   738  00F7  2201               	fcall	_SET_FAN_SPEED
+   739                           
+   740                           ;MS83F_ADC_FAN.C: 364: DELAY_MS(4);
+   741  00F8  3004               	movlw	4
+   742  00F9  222D               	fcall	_DELAY_MS
+   743                           
+   744                           ;MS83F_ADC_FAN.C: 365: over_load_cnt=0;
+   745  00FA  1283               	bcf	3,5	;RP0=0, select bank0
+   746  00FB  1303               	bcf	3,6	;RP1=0, select bank0
+   747  00FC  01B2               	clrf	_over_load_cnt	;volatile
+   748  00FD  01B3               	clrf	_over_load_cnt+1	;volatile
+   749                           
+   750                           ;MS83F_ADC_FAN.C: 366: }
+   751  00FE  28A7               	goto	l1169
+   752  00FF                     l3042:	
+   753                           
+   754                           ;MS83F_ADC_FAN.C: 367: else DELAY_MS(10);
+   755  00FF  300A               	movlw	10
+   756  0100  222D               	fcall	_DELAY_MS
+   757  0101  28A7               	goto	l1169
+   758  0102                     l3044:	
+   759                           
+   760                           ;MS83F_ADC_FAN.C: 369: else DELAY_MS(10);
+   761  0102  300A               	movlw	10
+   762  0103  222D               	fcall	_DELAY_MS
+   763  0104  28A7               	goto	l1169
+   764  0105                     __end_of_main:	
+   765                           
+   766                           	psect	text523
+   767  000B                     __ptext523:	
+   768 ;; =============== function _main ends ============
+   769                           
+   770                           
+   771 ;; *************** function _detect_block *****************
+   772 ;; Defined at:
+   773 ;;		line 266 in file "MS83F_ADC_FAN.C"
+   774 ;; Parameters:    Size  Location     Type
+   775 ;;		None
+   776 ;; Auto vars:     Size  Location     Type
+   777 ;;  limit           1   10[BANK0 ] unsigned char 
+   778 ;;  i               1    9[BANK0 ] unsigned char 
+   779 ;; Return value:  Size  Location     Type
+   780 ;;		None               void
+   781 ;; Registers used:
+   782 ;;		wreg, status,2, status,0, pclath, cstack
+   783 ;; Tracked objects:
+   784 ;;		On entry : 0/0
+   785 ;;		On exit  : 60/0
+   786 ;;		Unchanged: 0/0
+   787 ;; Data sizes:     COMMON   BANK0   BANK1
+   788 ;;      Params:         0       0       0
+   789 ;;      Locals:         0       2       0
+   790 ;;      Temps:          0       5       0
+   791 ;;      Totals:         0       7       0
+   792 ;;Total ram usage:        7 bytes
+   793 ;; Hardware stack levels used:    1
+   794 ;; Hardware stack levels required when called:    3
+   795 ;; This function calls:
+   796 ;;		_GET_ADC_VALUE
+   797 ;;		___lmul
+   798 ;;		___lwdiv
+   799 ;;		_SYS_SLEEP
+   800 ;; This function is called by:
+   801 ;;		_main
+   802 ;; This function uses a non-reentrant model
+   803 ;;
+   804  000B                     _detect_block:	
+   805                           
+   806                           ; Regs used in _detect_block: [wreg+status,2+status,0+pclath+cstack]
+   807  000B  3007               	movlw	7
+   808                           
+   809                           ;MS83F_ADC_FAN.C: 267: char i,limit;
+   810                           ;MS83F_ADC_FAN.C: 268: Buff_AN7 = GET_ADC_VALUE(7,1);
+   811  000C  01F3               	clrf	?_GET_ADC_VALUE
+   812  000D  0AF3               	incf	?_GET_ADC_VALUE,f
+   813  000E  2105               	fcall	_GET_ADC_VALUE
+   814  000F  0874               	movf	?_GET_ADC_VALUE+1,w
+   815  0010  00AF               	movwf	_Buff_AN7+1	;volatile
+   816  0011  0873               	movf	?_GET_ADC_VALUE,w
+   817  0012  00AE               	movwf	_Buff_AN7	;volatile
+   818                           
+   819                           ;MS83F_ADC_FAN.C: 269: Val_Volt = (unsigned long)Buff_AN7*2*4*1000/1024;
+   820  0013  082E               	movf	_Buff_AN7,w	;volatile
+   821  0014  00F2               	movwf	?___lmul
+   822  0015  082F               	movf	_Buff_AN7+1,w	;volatile
+   823  0016  00F3               	movwf	?___lmul+1
+   824  0017  3003               	movlw	3
+   825  0018  01F4               	clrf	?___lmul+2
+   826  0019  01F5               	clrf	?___lmul+3
+   827  001A  00A4               	movwf	??_detect_block
+   828  001B                     u915:	
+   829  001B  1003               	clrc
+   830  001C  0DF2               	rlf	?___lmul,f
+   831  001D  0DF3               	rlf	?___lmul+1,f
+   832  001E  0DF4               	rlf	?___lmul+2,f
+   833  001F  0DF5               	rlf	?___lmul+3,f
+   834  0020  0BA4               	decfsz	??_detect_block,f
+   835  0021  281B               	goto	u915
+   836  0022  3000               	movlw	0
+   837  0023  00F9               	movwf	?___lmul+7
+   838  0024  3003               	movlw	3
+   839  0025  01F8               	clrf	?___lmul+6
+   840  0026  00F7               	movwf	?___lmul+5
+   841  0027  30E8               	movlw	232
+   842  0028  00F6               	movwf	?___lmul+4
+   843  0029  213D               	fcall	___lmul
+   844  002A  0872               	movf	?___lmul,w
+   845  002B  00A5               	movwf	??_detect_block+1
+   846  002C  0873               	movf	?___lmul+1,w
+   847  002D  00A6               	movwf	??_detect_block+2
+   848  002E  0874               	movf	?___lmul+2,w
+   849  002F  00A7               	movwf	??_detect_block+3
+   850  0030  0875               	movf	?___lmul+3,w
+   851  0031  00A8               	movwf	??_detect_block+4
+   852  0032  300A               	movlw	10
+   853  0033                     u925:	
+   854  0033  1003               	clrc
+   855  0034  0CA8               	rrf	??_detect_block+4,f
+   856  0035  0CA7               	rrf	??_detect_block+3,f
+   857  0036  0CA6               	rrf	??_detect_block+2,f
+   858  0037  0CA5               	rrf	??_detect_block+1,f
+   859  0038  3EFF               	addlw	-1
+   860  0039  1D03               	skipz
+   861  003A  2833               	goto	u925
+   862  003B  0826               	movf	??_detect_block+2,w
+   863  003C  00B1               	movwf	_Val_Volt+1	;volatile
+   864  003D  0825               	movf	??_detect_block+1,w
+   865  003E  00B0               	movwf	_Val_Volt	;volatile
+   866                           
+   867                           ;MS83F_ADC_FAN.C: 270: if(Val_Volt>4000)limit=140;
+   868  003F  300F               	movlw	15
+   869  0040  0231               	subwf	_Val_Volt+1,w	;volatile
+   870  0041  30A1               	movlw	161
+   871  0042  1903               	skipnz
+   872  0043  0230               	subwf	_Val_Volt,w	;volatile
+   873  0044  1C03               	skipc
+   874  0045  2848               	goto	l2930
+   875  0046  308C               	movlw	140
+   876  0047  2876               	goto	L1
+   877  0048                     l2930:	
+   878                           
+   879                           ;MS83F_ADC_FAN.C: 271: else if(Val_Volt>3700)limit=135;
+   880  0048  300E               	movlw	14
+   881  0049  0231               	subwf	_Val_Volt+1,w	;volatile
+   882  004A  3075               	movlw	117
+   883  004B  1903               	skipnz
+   884  004C  0230               	subwf	_Val_Volt,w	;volatile
+   885  004D  1C03               	skipc
+   886  004E  2851               	goto	l2934
+   887  004F  3087               	movlw	135
+   888  0050  2876               	goto	L1
+   889  0051                     l2934:	
+   890                           
+   891                           ;MS83F_ADC_FAN.C: 272: else if(Val_Volt>3400)limit=130;
+   892  0051  300D               	movlw	13
+   893  0052  0231               	subwf	_Val_Volt+1,w	;volatile
+   894  0053  3049               	movlw	73
+   895  0054  1903               	skipnz
+   896  0055  0230               	subwf	_Val_Volt,w	;volatile
+   897  0056  1C03               	skipc
+   898  0057  285A               	goto	l2938
+   899  0058  3082               	movlw	130
+   900  0059  2876               	goto	L1
+   901  005A                     l2938:	
+   902                           
+   903                           ;MS83F_ADC_FAN.C: 273: else if(Val_Volt>3100)limit=125;
+   904  005A  300C               	movlw	12
+   905  005B  0231               	subwf	_Val_Volt+1,w	;volatile
+   906  005C  301D               	movlw	29
+   907  005D  1903               	skipnz
+   908  005E  0230               	subwf	_Val_Volt,w	;volatile
+   909  005F  1C03               	skipc
+   910  0060  2863               	goto	l2942
+   911  0061  307D               	movlw	125
+   912  0062  2876               	goto	L1
+   913  0063                     l2942:	
+   914                           
+   915                           ;MS83F_ADC_FAN.C: 274: else if(Val_Volt>2900)limit=120;
+   916  0063  300B               	movlw	11
+   917  0064  0231               	subwf	_Val_Volt+1,w	;volatile
+   918  0065  3055               	movlw	85
+   919  0066  1903               	skipnz
+   920  0067  0230               	subwf	_Val_Volt,w	;volatile
+   921  0068  1C03               	skipc
+   922  0069  286C               	goto	l2946
+   923  006A  3078               	movlw	120
+   924  006B  2876               	goto	L1
+   925  006C                     l2946:	
+   926                           
+   927                           ;MS83F_ADC_FAN.C: 275: else if(Val_Volt>2600)limit=115;
+   928  006C  300A               	movlw	10
+   929  006D  0231               	subwf	_Val_Volt+1,w	;volatile
+   930  006E  3029               	movlw	41
+   931  006F  1903               	skipnz
+   932  0070  0230               	subwf	_Val_Volt,w	;volatile
+   933  0071  1C03               	skipc
+   934  0072  2875               	goto	l2950
+   935  0073  3073               	movlw	115
+   936  0074  2876               	goto	L1
+   937  0075                     l2950:	
+   938                           
+   939                           ;MS83F_ADC_FAN.C: 276: else limit=110;
+   940  0075  306E               	movlw	110
+   941  0076                     L1:	
+   942  0076  00AA               	movwf	detect_block@limit
+   943                           
+   944                           ;MS83F_ADC_FAN.C: 277: Buff_AN6=0;
+   945  0077  01AC               	clrf	_Buff_AN6	;volatile
+   946  0078  01AD               	clrf	_Buff_AN6+1	;volatile
+   947                           
+   948                           ;MS83F_ADC_FAN.C: 278: for(i=0;i<20;i++)Buff_AN6 += GET_ADC_VALUE(6,1);
+   949  0079  01A9               	clrf	detect_block@i
+   950  007A                     l2958:	
+   951  007A  3006               	movlw	6
+   952  007B  01F3               	clrf	?_GET_ADC_VALUE
+   953  007C  0AF3               	incf	?_GET_ADC_VALUE,f
+   954  007D  2105               	fcall	_GET_ADC_VALUE
+   955  007E  0873               	movf	?_GET_ADC_VALUE,w
+   956  007F  07AC               	addwf	_Buff_AN6,f	;volatile
+   957  0080  1803               	skipnc
+   958  0081  0AAD               	incf	_Buff_AN6+1,f	;volatile
+   959  0082  0874               	movf	?_GET_ADC_VALUE+1,w
+   960  0083  07AD               	addwf	_Buff_AN6+1,f	;volatile
+   961  0084  3014               	movlw	20
+   962  0085  0AA9               	incf	detect_block@i,f
+   963  0086  0229               	subwf	detect_block@i,w
+   964  0087  1C03               	skipc
+   965  0088  287A               	goto	l2958
+   966                           
+   967                           ;MS83F_ADC_FAN.C: 279: Buff_AN6/=20;
+   968  0089  3014               	movlw	20
+   969  008A  00F2               	movwf	?___lwdiv
+   970  008B  01F3               	clrf	?___lwdiv+1
+   971  008C  082D               	movf	_Buff_AN6+1,w	;volatile
+   972  008D  00F5               	movwf	?___lwdiv+3
+   973  008E  082C               	movf	_Buff_AN6,w	;volatile
+   974  008F  00F4               	movwf	?___lwdiv+2
+   975  0090  2170               	fcall	___lwdiv
+   976  0091  0873               	movf	?___lwdiv+1,w
+   977  0092  00AD               	movwf	_Buff_AN6+1	;volatile
+   978  0093  0872               	movf	?___lwdiv,w
+   979  0094  00AC               	movwf	_Buff_AN6	;volatile
+   980                           
+   981                           ;MS83F_ADC_FAN.C: 280: if(Buff_AN6>limit)
+   982  0095  082A               	movf	detect_block@limit,w
+   983  0096  00A4               	movwf	??_detect_block
+   984  0097  01A5               	clrf	??_detect_block+1
+   985  0098  082D               	movf	_Buff_AN6+1,w	;volatile
+   986  0099  0225               	subwf	??_detect_block+1,w
+   987  009A  1D03               	skipz
+   988  009B  289E               	goto	u1005
+   989  009C  082C               	movf	_Buff_AN6,w	;volatile
+   990  009D  0224               	subwf	??_detect_block,w
+   991  009E                     u1005:	
+   992  009E  1803               	skipnc
+   993  009F  0008               	return
+   994                           
+   995                           ;MS83F_ADC_FAN.C: 281: {
+   996                           ;MS83F_ADC_FAN.C: 282: fan_speed=0;
+   997  00A0  01B4               	clrf	_fan_speed	;volatile
+   998                           
+   999                           ;MS83F_ADC_FAN.C: 283: PC3=0;
+  1000  00A1  1187               	bcf	7,3
+  1001                           
+  1002                           ;MS83F_ADC_FAN.C: 284: SYS_SLEEP();
+  1003  00A2  29D3               	ljmp	l2922
+  1004  00A3                     __end_of_detect_block:	
+  1005                           
+  1006                           	psect	text524
+  1007  01D3                     __ptext524:	
+  1008 ;; =============== function _detect_block ends ============
+  1009                           
+  1010                           
+  1011 ;; *************** function _SYS_SLEEP *****************
+  1012 ;; Defined at:
+  1013 ;;		line 222 in file "MS83F_ADC_FAN.C"
+  1014 ;; Parameters:    Size  Location     Type
+  1015 ;;		None
+  1016 ;; Auto vars:     Size  Location     Type
+  1017 ;;		None
+  1018 ;; Return value:  Size  Location     Type
+  1019 ;;		None               void
+  1020 ;; Registers used:
+  1021 ;;		None
+  1022 ;; Tracked objects:
+  1023 ;;		On entry : 40/0
+  1024 ;;		On exit  : 60/0
+  1025 ;;		Unchanged: 0/0
+  1026 ;; Data sizes:     COMMON   BANK0   BANK1
+  1027 ;;      Params:         0       0       0
+  1028 ;;      Locals:         0       0       0
+  1029 ;;      Temps:          0       0       0
+  1030 ;;      Totals:         0       0       0
+  1031 ;;Total ram usage:        0 bytes
+  1032 ;; Hardware stack levels used:    1
+  1033 ;; Hardware stack levels required when called:    1
+  1034 ;; This function calls:
+  1035 ;;		Nothing
+  1036 ;; This function is called by:
+  1037 ;;		_detect_block
+  1038 ;;		_main
+  1039 ;; This function uses a non-reentrant model
+  1040 ;;
+  1041  01D3                     _SYS_SLEEP:	
+  1042  01D3                     l2922:	
+  1043                           ; Regs used in _SYS_SLEEP: []
+  1044                           
+  1045                           
+  1046                           ;MS83F_ADC_FAN.C: 223: GIE = 0;
+  1047  01D3  138B               	bcf	11,7
+  1048                           
+  1049                           ;MS83F_ADC_FAN.C: 224: ADON = 0;
+  1050  01D4  1283               	bcf	3,5	;RP0=0, select bank0
+  1051  01D5  101F               	bcf	31,0
+  1052  01D6  0064               	clrwdt	;#
+  1053                           
+  1054                           ;MS83F_ADC_FAN.C: 226: SWDTEN = 0;
+  1055  01D7  1283               	bcf	3,5	;RP0=0, select bank0
+  1056  01D8  1303               	bcf	3,6	;RP1=0, select bank0
+  1057  01D9  1018               	bcf	24,0
+  1058                           
+  1059                           ;MS83F_ADC_FAN.C: 230: SLVREN = 0;
+  1060  01DA  121B               	bcf	27,4
+  1061                           
+  1062                           ;MS83F_ADC_FAN.C: 234: INTEDG = 0;
+  1063  01DB  1683               	bsf	3,5	;RP0=1, select bank1
+  1064  01DC  1301               	bcf	1,6
+  1065                           
+  1066                           ;MS83F_ADC_FAN.C: 235: INTF = 0;
+  1067  01DD  108B               	bcf	11,1
+  1068                           
+  1069                           ;MS83F_ADC_FAN.C: 236: INTE = 1;
+  1070  01DE  160B               	bsf	11,4
+  1071  01DF  0063               	sleep	;#
+  1072                           
+  1073                           ;MS83F_ADC_FAN.C: 238: _nop();
+  1074  01E0  0000               	nop
+  1075                           
+  1076                           ;MS83F_ADC_FAN.C: 239: INTE = 0;
+  1077  01E1  120B               	bcf	11,4
+  1078                           
+  1079                           ;MS83F_ADC_FAN.C: 240: INTF = 0;
+  1080  01E2  108B               	bcf	11,1
+  1081                           
+  1082                           ;MS83F_ADC_FAN.C: 241: SWDTEN = 1;
+  1083  01E3  1283               	bcf	3,5	;RP0=0, select bank0
+  1084  01E4  1303               	bcf	3,6	;RP1=0, select bank0
+  1085  01E5  1418               	bsf	24,0
+  1086  01E6  0064               	clrwdt	;#
+  1087                           
+  1088                           ;MS83F_ADC_FAN.C: 243: SLVREN = 1;
+  1089  01E7  1283               	bcf	3,5	;RP0=0, select bank0
+  1090  01E8  1303               	bcf	3,6	;RP1=0, select bank0
+  1091  01E9  161B               	bsf	27,4
+  1092                           
+  1093                           ;MS83F_ADC_FAN.C: 244: GIE = 1;
+  1094  01EA  178B               	bsf	11,7
+  1095  01EB  0008               	return
+  1096  01EC                     __end_of_SYS_SLEEP:	
+  1097                           
+  1098                           	psect	text525
+  1099  0201                     __ptext525:	
+  1100 ;; =============== function _SYS_SLEEP ends ============
+  1101                           
+  1102                           
+  1103 ;; *************** function _SET_FAN_SPEED *****************
+  1104 ;; Defined at:
+  1105 ;;		line 179 in file "MS83F_ADC_FAN.C"
+  1106 ;; Parameters:    Size  Location     Type
+  1107 ;;  speed           1    wreg     unsigned char 
+  1108 ;; Auto vars:     Size  Location     Type
+  1109 ;;  speed           1    3[COMMON] unsigned char 
+  1110 ;; Return value:  Size  Location     Type
+  1111 ;;		None               void
+  1112 ;; Registers used:
+  1113 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1114 ;; Tracked objects:
+  1115 ;;		On entry : 60/0
+  1116 ;;		On exit  : 60/20
+  1117 ;;		Unchanged: FFE00/0
+  1118 ;; Data sizes:     COMMON   BANK0   BANK1
+  1119 ;;      Params:         0       0       0
+  1120 ;;      Locals:         1       0       0
+  1121 ;;      Temps:          0       0       0
+  1122 ;;      Totals:         1       0       0
+  1123 ;;Total ram usage:        1 bytes
+  1124 ;; Hardware stack levels used:    1
+  1125 ;; Hardware stack levels required when called:    2
+  1126 ;; This function calls:
+  1127 ;;		_SET_PWM4_ON
+  1128 ;; This function is called by:
+  1129 ;;		_main
+  1130 ;; This function uses a non-reentrant model
+  1131 ;;
+  1132  0201                     _SET_FAN_SPEED:	
+  1133                           
+  1134                           ; Regs used in _SET_FAN_SPEED: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1135                           ;SET_FAN_SPEED@speed stored from wreg
+  1136  0201  00F3               	movwf	SET_FAN_SPEED@speed
+  1137                           
+  1138                           ; Switch size 1, requested type "space"
+  1139                           ; Number of cases is 3, Range of values is 1 to 3
+  1140                           ; switch strategies available:
+  1141                           ; Name         Instructions Cycles
+  1142                           ; simple_byte           10     6 (average)
+  1143                           ; direct_byte           12     9 (fixed)
+  1144                           ; jumptable            263     9 (fixed)
+  1145                           ;	Chosen strategy is simple_byte
+  1146                           
+  1147                           ;MS83F_ADC_FAN.C: 193: break;
+  1148                           
+  1149                           ;MS83F_ADC_FAN.C: 180: switch(speed)
+  1150  0202  3A01               	xorlw	1	; case 1
+  1151  0203  1903               	skipnz
+  1152  0204  2A0D               	goto	l2704
+  1153  0205  3A03               	xorlw	3	; case 2
+  1154  0206  1903               	skipnz
+  1155  0207  2A0F               	goto	l2706
+  1156  0208  3A01               	xorlw	1	; case 3
+  1157  0209  1903               	skipnz
+  1158  020A  2A11               	goto	l2708
+  1159  020B  2A13               	goto	l2710
+  1160  020C  0008               	return
+  1161  020D                     l2704:	
+  1162                           
+  1163                           ;MS83F_ADC_FAN.C: 183: SET_PWM4_ON(205);
+  1164  020D  30CD               	movlw	205
+  1165  020E  29B8               	ljmp	_SET_PWM4_ON
+  1166  020F                     l2706:	
+  1167                           ;MS83F_ADC_FAN.C: 184: break;
+  1168                           
+  1169                           
+  1170                           ;MS83F_ADC_FAN.C: 186: SET_PWM4_ON(230);
+  1171  020F  30E6               	movlw	230
+  1172  0210  29B8               	ljmp	_SET_PWM4_ON
+  1173  0211                     l2708:	
+  1174                           ;MS83F_ADC_FAN.C: 187: break;
+  1175                           
+  1176                           
+  1177                           ;MS83F_ADC_FAN.C: 189: SET_PWM4_ON(255);
+  1178  0211  30FF               	movlw	255
+  1179  0212  29B8               	ljmp	_SET_PWM4_ON
+  1180  0213                     l2710:	
+  1181                           ;MS83F_ADC_FAN.C: 190: break;
+  1182                           
+  1183                           
+  1184                           ;MS83F_ADC_FAN.C: 192: SET_PWM4_ON(0);
+  1185  0213  3000               	movlw	0
+  1186  0214  29B8               	ljmp	_SET_PWM4_ON
+  1187  0215                     __end_of_SET_FAN_SPEED:	
+  1188                           
+  1189                           	psect	text526
+  1190  022D                     __ptext526:	
+  1191 ;; =============== function _SET_FAN_SPEED ends ============
+  1192                           
+  1193                           
+  1194 ;; *************** function _DELAY_MS *****************
+  1195 ;; Defined at:
+  1196 ;;		line 134 in file "MS83F_ADC_FAN.C"
+  1197 ;; Parameters:    Size  Location     Type
+  1198 ;;  Time            1    wreg     unsigned char 
+  1199 ;; Auto vars:     Size  Location     Type
+  1200 ;;  Time            1    3[COMMON] unsigned char 
+  1201 ;;  a               1    4[COMMON] unsigned char 
+  1202 ;; Return value:  Size  Location     Type
+  1203 ;;		None               void
+  1204 ;; Registers used:
+  1205 ;;		wreg, status,2, status,0, pclath, cstack
+  1206 ;; Tracked objects:
+  1207 ;;		On entry : 0/20
+  1208 ;;		On exit  : 0/0
+  1209 ;;		Unchanged: FFE00/0
+  1210 ;; Data sizes:     COMMON   BANK0   BANK1
+  1211 ;;      Params:         0       0       0
+  1212 ;;      Locals:         2       0       0
+  1213 ;;      Temps:          0       0       0
+  1214 ;;      Totals:         2       0       0
+  1215 ;;Total ram usage:        2 bytes
+  1216 ;; Hardware stack levels used:    1
+  1217 ;; Hardware stack levels required when called:    2
+  1218 ;; This function calls:
+  1219 ;;		_DELAY_1MS
+  1220 ;; This function is called by:
+  1221 ;;		_main
+  1222 ;; This function uses a non-reentrant model
+  1223 ;;
+  1224  022D                     _DELAY_MS:	
+  1225                           
+  1226                           ; Regs used in _DELAY_MS: [wreg+status,2+status,0+pclath+cstack]
+  1227                           ;DELAY_MS@Time stored from wreg
+  1228  022D  00F3               	movwf	DELAY_MS@Time
+  1229                           
+  1230                           ;MS83F_ADC_FAN.C: 135: unsigned char a;
+  1231                           ;MS83F_ADC_FAN.C: 137: for(a=0;a<Time;a++)
+  1232  022E  01F4               	clrf	DELAY_MS@a
+  1233  022F                     l2700:	
+  1234  022F  0873               	movf	DELAY_MS@Time,w
+  1235  0230  0274               	subwf	DELAY_MS@a,w
+  1236  0231  1803               	btfsc	3,0
+  1237  0232  0008               	return
+  1238                           
+  1239                           ;MS83F_ADC_FAN.C: 138: {
+  1240                           ;MS83F_ADC_FAN.C: 139: DELAY_1MS();
+  1241  0233  223F               	fcall	_DELAY_1MS
+  1242  0234  0AF4               	incf	DELAY_MS@a,f
+  1243  0235  2A2F               	goto	l2700
+  1244  0236                     __end_of_DELAY_MS:	
+  1245                           
+  1246                           	psect	text527
+  1247  0105                     __ptext527:	
+  1248 ;; =============== function _DELAY_MS ends ============
+  1249                           
+  1250                           
+  1251 ;; *************** function _GET_ADC_VALUE *****************
+  1252 ;; Defined at:
+  1253 ;;		line 93 in file "MS83F_ADC_FAN.C"
+  1254 ;; Parameters:    Size  Location     Type
+  1255 ;;  ChannelNO       1    wreg     unsigned char 
+  1256 ;;  Vref            1    3[COMMON] unsigned char 
+  1257 ;; Auto vars:     Size  Location     Type
+  1258 ;;  ChannelNO       1    6[COMMON] unsigned char 
+  1259 ;;  TempADCBuffe    2    7[COMMON] unsigned int 
+  1260 ;;  TempAdcon0      1    9[COMMON] unsigned char 
+  1261 ;; Return value:  Size  Location     Type
+  1262 ;;                  2    3[COMMON] unsigned int 
+  1263 ;; Registers used:
+  1264 ;;		wreg, status,2, status,0, pclath, cstack
+  1265 ;; Tracked objects:
+  1266 ;;		On entry : 0/0
+  1267 ;;		On exit  : 60/0
+  1268 ;;		Unchanged: FFE00/0
+  1269 ;; Data sizes:     COMMON   BANK0   BANK1
+  1270 ;;      Params:         2       0       0
+  1271 ;;      Locals:         4       0       0
+  1272 ;;      Temps:          1       0       0
+  1273 ;;      Totals:         7       0       0
+  1274 ;;Total ram usage:        7 bytes
+  1275 ;; Hardware stack levels used:    1
+  1276 ;; Hardware stack levels required when called:    2
+  1277 ;; This function calls:
+  1278 ;;		_DELAY_30US
+  1279 ;; This function is called by:
+  1280 ;;		_detect_block
+  1281 ;; This function uses a non-reentrant model
+  1282 ;;
+  1283  0105                     _GET_ADC_VALUE:	
+  1284                           
+  1285                           ; Regs used in _GET_ADC_VALUE: [wreg+status,2+status,0+pclath+cstack]
+  1286                           ;GET_ADC_VALUE@ChannelNO stored from wreg
+  1287  0105  00F6               	movwf	GET_ADC_VALUE@ChannelNO
+  1288                           
+  1289                           ;MS83F_ADC_FAN.C: 95: unsigned int TempADCBuffer=0;
+  1290  0106  01F7               	clrf	GET_ADC_VALUE@TempADCBuffer
+  1291  0107  01F8               	clrf	GET_ADC_VALUE@TempADCBuffer+1
+  1292                           
+  1293                           ;MS83F_ADC_FAN.C: 97: TempAdcon0 = (ChannelNO<<2);
+  1294  0108  00F5               	movwf	??_GET_ADC_VALUE
+  1295  0109  1003               	clrc
+  1296  010A  0DF5               	rlf	??_GET_ADC_VALUE,f
+  1297  010B  1003               	clrc
+  1298  010C  0D75               	rlf	??_GET_ADC_VALUE,w
+  1299  010D  00F9               	movwf	GET_ADC_VALUE@TempAdcon0
+  1300                           
+  1301                           ;MS83F_ADC_FAN.C: 98: if(Vref==0) {TempAdcon0 |= 0b10000001;}
+  1302  010E  08F3               	movf	GET_ADC_VALUE@Vref,f
+  1303  010F  1D03               	skipz
+  1304  0110  2913               	goto	l2900
+  1305  0111  3081               	movlw	129
+  1306  0112  291E               	goto	L2
+  1307  0113                     l2900:	
+  1308                           
+  1309                           ;MS83F_ADC_FAN.C: 99: else if(Vref==1) {TempAdcon0 |= 0b10100001;}
+  1310  0113  0B73               	decfsz	GET_ADC_VALUE@Vref,w
+  1311  0114  2917               	goto	l2904
+  1312  0115  30A1               	movlw	161
+  1313  0116  291E               	goto	L2
+  1314  0117                     l2904:	
+  1315                           
+  1316                           ;MS83F_ADC_FAN.C: 100: else if(Vref==2) {TempAdcon0 |= 0b11000001;}
+  1317  0117  0873               	movf	GET_ADC_VALUE@Vref,w
+  1318  0118  3A02               	xorlw	2
+  1319  0119  1D03               	skipz
+  1320  011A  291D               	goto	l2908
+  1321  011B  30C1               	movlw	193
+  1322  011C  291E               	goto	L2
+  1323  011D                     l2908:	
+  1324                           
+  1325                           ;MS83F_ADC_FAN.C: 101: else {TempAdcon0 |= 0b11100001;}
+  1326  011D  30E1               	movlw	225
+  1327  011E                     L2:	
+  1328  011E  04F9               	iorwf	GET_ADC_VALUE@TempAdcon0,f
+  1329                           
+  1330                           ;MS83F_ADC_FAN.C: 102: ADCON0 = TempAdcon0;
+  1331  011F  0879               	movf	GET_ADC_VALUE@TempAdcon0,w
+  1332  0120  1283               	bcf	3,5	;RP0=0, select bank0
+  1333  0121  1303               	bcf	3,6	;RP1=0, select bank0
+  1334  0122  009F               	movwf	31	;volatile
+  1335                           
+  1336                           ;MS83F_ADC_FAN.C: 103: DELAY_30US();
+  1337  0123  2247               	fcall	_DELAY_30US
+  1338                           
+  1339                           ;MS83F_ADC_FAN.C: 104: GO_DONE = 1;
+  1340  0124  1283               	bcf	3,5	;RP0=0, select bank0
+  1341  0125  1303               	bcf	3,6	;RP1=0, select bank0
+  1342  0126  149F               	bsf	31,1
+  1343  0127                     l1096:	
+  1344                           ;MS83F_ADC_FAN.C: 105: while(GO_DONE==1) asm("clrwdt");
+  1345                           
+  1346  0127  1283               	bcf	3,5	;RP0=0, select bank0
+  1347  0128  1303               	bcf	3,6	;RP1=0, select bank0
+  1348  0129  1C9F               	btfss	31,1
+  1349  012A  292D               	goto	l2916
+  1350  012B  0064               	clrwdt	;#
+  1351  012C  2927               	goto	l1096
+  1352  012D                     l2916:	
+  1353                           
+  1354                           ;MS83F_ADC_FAN.C: 106: TempADCBuffer = ADRESH;
+  1355  012D  081E               	movf	30,w	;volatile
+  1356  012E  00F7               	movwf	GET_ADC_VALUE@TempADCBuffer
+  1357  012F  01F8               	clrf	GET_ADC_VALUE@TempADCBuffer+1
+  1358                           
+  1359                           ;MS83F_ADC_FAN.C: 107: TempADCBuffer = (TempADCBuffer<<8)|ADRESL;
+  1360  0130  00F5               	movwf	??_GET_ADC_VALUE
+  1361  0131  1683               	bsf	3,5	;RP0=1, select bank1
+  1362  0132  081E               	movf	30,w	;volatile
+  1363  0133  00F7               	movwf	GET_ADC_VALUE@TempADCBuffer
+  1364  0134  0875               	movf	??_GET_ADC_VALUE,w
+  1365  0135  00F8               	movwf	GET_ADC_VALUE@TempADCBuffer+1
+  1366                           
+  1367                           ;MS83F_ADC_FAN.C: 108: ADON = 0;
+  1368  0136  1283               	bcf	3,5	;RP0=0, select bank0
+  1369  0137  101F               	bcf	31,0
+  1370                           
+  1371                           ;MS83F_ADC_FAN.C: 109: return(TempADCBuffer);
+  1372  0138  0878               	movf	GET_ADC_VALUE@TempADCBuffer+1,w
+  1373  0139  00F4               	movwf	?_GET_ADC_VALUE+1
+  1374  013A  0877               	movf	GET_ADC_VALUE@TempADCBuffer,w
+  1375  013B  00F3               	movwf	?_GET_ADC_VALUE
+  1376  013C  0008               	return
+  1377  013D                     __end_of_GET_ADC_VALUE:	
+  1378                           
+  1379                           	psect	text528
+  1380  013D                     __ptext528:	
+  1381 ;; =============== function _GET_ADC_VALUE ends ============
+  1382                           
+  1383                           
+  1384 ;; *************** function ___lmul *****************
+  1385 ;; Defined at:
+  1386 ;;		line 3 in file "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\lmul.c"
+  1387 ;; Parameters:    Size  Location     Type
+  1388 ;;  multiplier      4    2[COMMON] unsigned long 
+  1389 ;;  multiplicand    4    6[COMMON] unsigned long 
+  1390 ;; Auto vars:     Size  Location     Type
+  1391 ;;  product         4    0[BANK0 ] unsigned long 
+  1392 ;; Return value:  Size  Location     Type
+  1393 ;;                  4    2[COMMON] unsigned long 
+  1394 ;; Registers used:
+  1395 ;;		wreg, status,2, status,0
+  1396 ;; Tracked objects:
+  1397 ;;		On entry : 60/0
+  1398 ;;		On exit  : 60/0
+  1399 ;;		Unchanged: FFF9F/0
+  1400 ;; Data sizes:     COMMON   BANK0   BANK1
+  1401 ;;      Params:         8       0       0
+  1402 ;;      Locals:         0       4       0
+  1403 ;;      Temps:          0       0       0
+  1404 ;;      Totals:         8       4       0
+  1405 ;;Total ram usage:       12 bytes
+  1406 ;; Hardware stack levels used:    1
+  1407 ;; Hardware stack levels required when called:    1
+  1408 ;; This function calls:
+  1409 ;;		Nothing
+  1410 ;; This function is called by:
+  1411 ;;		_detect_block
+  1412 ;; This function uses a non-reentrant model
+  1413 ;;
+  1414  013D                     ___lmul:	
+  1415                           
+  1416                           ; Regs used in ___lmul: [wreg+status,2+status,0]
+  1417  013D  01A0               	clrf	___lmul@product
+  1418  013E  01A1               	clrf	___lmul@product+1
+  1419  013F  01A2               	clrf	___lmul@product+2
+  1420  0140  01A3               	clrf	___lmul@product+3
+  1421  0141                     l1929:	
+  1422  0141  1C72               	btfss	___lmul@multiplier,0
+  1423  0142  2957               	goto	l2884
+  1424  0143  0876               	movf	___lmul@multiplicand,w
+  1425  0144  07A0               	addwf	___lmul@product,f
+  1426  0145  0877               	movf	___lmul@multiplicand+1,w
+  1427  0146  1103               	clrz
+  1428  0147  1803               	skipnc
+  1429  0148  3E01               	addlw	1
+  1430  0149  1D03               	btfss	3,2
+  1431  014A  07A1               	addwf	___lmul@product+1,f
+  1432  014B  0878               	movf	___lmul@multiplicand+2,w
+  1433  014C  1103               	clrz
+  1434  014D  1803               	skipnc
+  1435  014E  3E01               	addlw	1
+  1436  014F  1D03               	btfss	3,2
+  1437  0150  07A2               	addwf	___lmul@product+2,f
+  1438  0151  0879               	movf	___lmul@multiplicand+3,w
+  1439  0152  1103               	clrz
+  1440  0153  1803               	skipnc
+  1441  0154  3E01               	addlw	1
+  1442  0155  1D03               	btfss	3,2
+  1443  0156  07A3               	addwf	___lmul@product+3,f
+  1444  0157                     l2884:	
+  1445  0157  1003               	clrc
+  1446  0158  0DF6               	rlf	___lmul@multiplicand,f
+  1447  0159  0DF7               	rlf	___lmul@multiplicand+1,f
+  1448  015A  0DF8               	rlf	___lmul@multiplicand+2,f
+  1449  015B  0DF9               	rlf	___lmul@multiplicand+3,f
+  1450  015C  1003               	clrc
+  1451  015D  0CF5               	rrf	___lmul@multiplier+3,f
+  1452  015E  0CF4               	rrf	___lmul@multiplier+2,f
+  1453  015F  0CF3               	rrf	___lmul@multiplier+1,f
+  1454  0160  0CF2               	rrf	___lmul@multiplier,f
+  1455  0161  0875               	movf	___lmul@multiplier+3,w
+  1456  0162  0474               	iorwf	___lmul@multiplier+2,w
+  1457  0163  0473               	iorwf	___lmul@multiplier+1,w
+  1458  0164  0472               	iorwf	___lmul@multiplier,w
+  1459  0165  1D03               	skipz
+  1460  0166  2941               	goto	l1929
+  1461  0167  0823               	movf	___lmul@product+3,w
+  1462  0168  00F5               	movwf	?___lmul+3
+  1463  0169  0822               	movf	___lmul@product+2,w
+  1464  016A  00F4               	movwf	?___lmul+2
+  1465  016B  0821               	movf	___lmul@product+1,w
+  1466  016C  00F3               	movwf	?___lmul+1
+  1467  016D  0820               	movf	___lmul@product,w
+  1468  016E  00F2               	movwf	?___lmul
+  1469  016F  0008               	return
+  1470  0170                     __end_of___lmul:	
+  1471                           
+  1472                           	psect	text529
+  1473  0170                     __ptext529:	
+  1474 ;; =============== function ___lmul ends ============
+  1475                           
+  1476                           
+  1477 ;; *************** function ___lwdiv *****************
+  1478 ;; Defined at:
+  1479 ;;		line 5 in file "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\lwdiv.c"
+  1480 ;; Parameters:    Size  Location     Type
+  1481 ;;  divisor         2    2[COMMON] unsigned int 
+  1482 ;;  dividend        2    4[COMMON] unsigned int 
+  1483 ;; Auto vars:     Size  Location     Type
+  1484 ;;  quotient        2    7[COMMON] unsigned int 
+  1485 ;;  counter         1    6[COMMON] unsigned char 
+  1486 ;; Return value:  Size  Location     Type
+  1487 ;;                  2    2[COMMON] unsigned int 
+  1488 ;; Registers used:
+  1489 ;;		wreg, status,2, status,0
+  1490 ;; Tracked objects:
+  1491 ;;		On entry : 60/0
+  1492 ;;		On exit  : 60/0
+  1493 ;;		Unchanged: FFF9F/0
+  1494 ;; Data sizes:     COMMON   BANK0   BANK1
+  1495 ;;      Params:         4       0       0
+  1496 ;;      Locals:         3       0       0
+  1497 ;;      Temps:          0       0       0
+  1498 ;;      Totals:         7       0       0
+  1499 ;;Total ram usage:        7 bytes
+  1500 ;; Hardware stack levels used:    1
+  1501 ;; Hardware stack levels required when called:    1
+  1502 ;; This function calls:
+  1503 ;;		Nothing
+  1504 ;; This function is called by:
+  1505 ;;		_detect_block
+  1506 ;; This function uses a non-reentrant model
+  1507 ;;
+  1508  0170                     ___lwdiv:	
+  1509                           
+  1510                           ; Regs used in ___lwdiv: [wreg+status,2+status,0]
+  1511  0170  01F7               	clrf	___lwdiv@quotient
+  1512  0171  01F8               	clrf	___lwdiv@quotient+1
+  1513  0172  0873               	movf	___lwdiv@divisor+1,w
+  1514  0173  0472               	iorwf	___lwdiv@divisor,w
+  1515  0174  1903               	skipnz
+  1516  0175  2995               	goto	l2876
+  1517  0176  01F6               	clrf	___lwdiv@counter
+  1518  0177                     L3:	
+  1519  0177  0AF6               	incf	___lwdiv@counter,f
+  1520  0178  1BF3               	btfsc	___lwdiv@divisor+1,7
+  1521  0179  297E               	goto	l2864
+  1522  017A  1003               	clrc
+  1523  017B  0DF2               	rlf	___lwdiv@divisor,f
+  1524  017C  0DF3               	rlf	___lwdiv@divisor+1,f
+  1525  017D  2977               	goto	L3
+  1526  017E                     l2864:	
+  1527  017E  1003               	clrc
+  1528  017F  0DF7               	rlf	___lwdiv@quotient,f
+  1529  0180  0DF8               	rlf	___lwdiv@quotient+1,f
+  1530  0181  0873               	movf	___lwdiv@divisor+1,w
+  1531  0182  0275               	subwf	___lwdiv@dividend+1,w
+  1532  0183  1D03               	skipz
+  1533  0184  2987               	goto	u825
+  1534  0185  0872               	movf	___lwdiv@divisor,w
+  1535  0186  0274               	subwf	___lwdiv@dividend,w
+  1536  0187                     u825:	
+  1537  0187  1C03               	skipc
+  1538  0188  2991               	goto	L4
+  1539  0189  0872               	movf	___lwdiv@divisor,w
+  1540  018A  02F4               	subwf	___lwdiv@dividend,f
+  1541  018B  0873               	movf	___lwdiv@divisor+1,w
+  1542  018C  1C03               	skipc
+  1543  018D  03F5               	decf	___lwdiv@dividend+1,f
+  1544  018E  02F5               	subwf	___lwdiv@dividend+1,f
+  1545  018F  1477               	bsf	___lwdiv@quotient,0
+  1546  0190  1003               	clrc
+  1547  0191                     L4:	
+  1548  0191  0CF3               	rrf	___lwdiv@divisor+1,f
+  1549  0192  0CF2               	rrf	___lwdiv@divisor,f
+  1550  0193  0BF6               	decfsz	___lwdiv@counter,f
+  1551  0194  297E               	goto	l2864
+  1552  0195                     l2876:	
+  1553  0195  0878               	movf	___lwdiv@quotient+1,w
+  1554  0196  00F3               	movwf	?___lwdiv+1
+  1555  0197  0877               	movf	___lwdiv@quotient,w
+  1556  0198  00F2               	movwf	?___lwdiv
+  1557  0199  0008               	return
+  1558  019A                     __end_of___lwdiv:	
+  1559                           
+  1560                           	psect	text530
+  1561  019A                     __ptext530:	
+  1562 ;; =============== function ___lwdiv ends ============
+  1563                           
+  1564                           
+  1565 ;; *************** function _GetKeyEvent *****************
+  1566 ;; Defined at:
+  1567 ;;		line 247 in file "MS83F_ADC_FAN.C"
+  1568 ;; Parameters:    Size  Location     Type
+  1569 ;;		None
+  1570 ;; Auto vars:     Size  Location     Type
+  1571 ;;  key_event       1    2[COMMON] unsigned char 
+  1572 ;; Return value:  Size  Location     Type
+  1573 ;;                  1    wreg      unsigned char 
+  1574 ;; Registers used:
+  1575 ;;		wreg, status,2, status,0
+  1576 ;; Tracked objects:
+  1577 ;;		On entry : 0/20
+  1578 ;;		On exit  : 60/0
+  1579 ;;		Unchanged: FFF9F/0
+  1580 ;; Data sizes:     COMMON   BANK0   BANK1
+  1581 ;;      Params:         0       0       0
+  1582 ;;      Locals:         1       0       0
+  1583 ;;      Temps:          0       0       0
+  1584 ;;      Totals:         1       0       0
+  1585 ;;Total ram usage:        1 bytes
+  1586 ;; Hardware stack levels used:    1
+  1587 ;; Hardware stack levels required when called:    1
+  1588 ;; This function calls:
+  1589 ;;		Nothing
+  1590 ;; This function is called by:
+  1591 ;;		_main
+  1592 ;; This function uses a non-reentrant model
+  1593 ;;
+  1594  019A                     _GetKeyEvent:	
+  1595                           
+  1596                           ;MS83F_ADC_FAN.C: 248: static unsigned char keytime=0;
+  1597                           ;MS83F_ADC_FAN.C: 249: unsigned char key_event=0;
+  1598                           
+  1599                           ; Regs used in _GetKeyEvent: [wreg+status,2+status,0]
+  1600  019A  01F2               	clrf	GetKeyEvent@key_event
+  1601                           
+  1602                           ;MS83F_ADC_FAN.C: 250: if(PC1==0)
+  1603  019B  1283               	bcf	3,5	;RP0=0, select bank0
+  1604  019C  1303               	bcf	3,6	;RP1=0, select bank0
+  1605  019D  1887               	btfsc	7,1
+  1606  019E  29AB               	goto	l2614
+  1607                           
+  1608                           ;MS83F_ADC_FAN.C: 251: {
+  1609                           ;MS83F_ADC_FAN.C: 252: if(keytime<200)
+  1610  019F  30C8               	movlw	200
+  1611  01A0  027B               	subwf	GetKeyEvent@keytime,w
+  1612  01A1  1803               	skipnc
+  1613  01A2  29B6               	goto	l2622
+  1614  01A3  30C8               	movlw	200
+  1615                           
+  1616                           ;MS83F_ADC_FAN.C: 253: {
+  1617                           ;MS83F_ADC_FAN.C: 254: keytime++;
+  1618  01A4  0AFB               	incf	GetKeyEvent@keytime,f
+  1619                           
+  1620                           ;MS83F_ADC_FAN.C: 255: if(keytime>=200)key_event = 2;
+  1621  01A5  027B               	subwf	GetKeyEvent@keytime,w
+  1622  01A6  1C03               	skipc
+  1623  01A7  29B6               	goto	l2622
+  1624  01A8  3002               	movlw	2
+  1625  01A9  00F2               	movwf	GetKeyEvent@key_event
+  1626  01AA  29B6               	goto	l2622
+  1627  01AB                     l2614:	
+  1628                           
+  1629                           ;MS83F_ADC_FAN.C: 258: else
+  1630                           ;MS83F_ADC_FAN.C: 259: {
+  1631                           ;MS83F_ADC_FAN.C: 260: if(keytime>10 && keytime<200)key_event=1;
+  1632  01AB  300B               	movlw	11
+  1633  01AC  027B               	subwf	GetKeyEvent@keytime,w
+  1634  01AD  1C03               	skipc
+  1635  01AE  29B5               	goto	l2620
+  1636  01AF  30C8               	movlw	200
+  1637  01B0  027B               	subwf	GetKeyEvent@keytime,w
+  1638  01B1  1803               	skipnc
+  1639  01B2  29B5               	goto	l2620
+  1640  01B3  01F2               	clrf	GetKeyEvent@key_event
+  1641  01B4  0AF2               	incf	GetKeyEvent@key_event,f
+  1642  01B5                     l2620:	
+  1643                           
+  1644                           ;MS83F_ADC_FAN.C: 261: keytime=0;
+  1645  01B5  01FB               	clrf	GetKeyEvent@keytime
+  1646  01B6                     l2622:	
+  1647                           
+  1648                           ;MS83F_ADC_FAN.C: 262: }
+  1649                           ;MS83F_ADC_FAN.C: 263: return key_event;
+  1650  01B6  0872               	movf	GetKeyEvent@key_event,w
+  1651  01B7  0008               	return
+  1652  01B8                     __end_of_GetKeyEvent:	
+  1653                           
+  1654                           	psect	text531
+  1655  024F                     __ptext531:	
+  1656 ;; =============== function _GetKeyEvent ends ============
+  1657                           
+  1658                           
+  1659 ;; *************** function _INT_INIT *****************
+  1660 ;; Defined at:
+  1661 ;;		line 216 in file "MS83F_ADC_FAN.C"
+  1662 ;; Parameters:    Size  Location     Type
+  1663 ;;		None
+  1664 ;; Auto vars:     Size  Location     Type
+  1665 ;;		None
+  1666 ;; Return value:  Size  Location     Type
+  1667 ;;		None               void
+  1668 ;; Registers used:
+  1669 ;;		None
+  1670 ;; Tracked objects:
+  1671 ;;		On entry : 17F/40
+  1672 ;;		On exit  : 17F/20
+  1673 ;;		Unchanged: FFE80/0
+  1674 ;; Data sizes:     COMMON   BANK0   BANK1
+  1675 ;;      Params:         0       0       0
+  1676 ;;      Locals:         0       0       0
+  1677 ;;      Temps:          0       0       0
+  1678 ;;      Totals:         0       0       0
+  1679 ;;Total ram usage:        0 bytes
+  1680 ;; Hardware stack levels used:    1
+  1681 ;; Hardware stack levels required when called:    1
+  1682 ;; This function calls:
+  1683 ;;		Nothing
+  1684 ;; This function is called by:
+  1685 ;;		_main
+  1686 ;; This function uses a non-reentrant model
+  1687 ;;
+  1688  024F                     _INT_INIT:	
+  1689                           
+  1690                           ;MS83F_ADC_FAN.C: 217: INTEDG = 0;
+  1691                           
+  1692                           ; Regs used in _INT_INIT: []
+  1693  024F  1683               	bsf	3,5	;RP0=1, select bank1
+  1694  0250  1303               	bcf	3,6	;RP1=0, select bank1
+  1695  0251  1301               	bcf	1,6
+  1696                           
+  1697                           ;MS83F_ADC_FAN.C: 218: INTF = 0;
+  1698  0252  108B               	bcf	11,1
+  1699                           
+  1700                           ;MS83F_ADC_FAN.C: 219: INTE = 0;
+  1701  0253  120B               	bcf	11,4
+  1702  0254  0008               	return
+  1703  0255                     __end_of_INT_INIT:	
+  1704                           
+  1705                           	psect	text532
+  1706  01B8                     __ptext532:	
+  1707 ;; =============== function _INT_INIT ends ============
+  1708                           
+  1709                           
+  1710 ;; *************** function _SET_PWM4_ON *****************
+  1711 ;; Defined at:
+  1712 ;;		line 165 in file "MS83F_ADC_FAN.C"
+  1713 ;; Parameters:    Size  Location     Type
+  1714 ;;  duty            1    wreg     unsigned char 
+  1715 ;; Auto vars:     Size  Location     Type
+  1716 ;;  duty            1    2[COMMON] unsigned char 
+  1717 ;; Return value:  Size  Location     Type
+  1718 ;;		None               void
+  1719 ;; Registers used:
+  1720 ;;		wreg, status,2
+  1721 ;; Tracked objects:
+  1722 ;;		On entry : 60/0
+  1723 ;;		On exit  : 60/20
+  1724 ;;		Unchanged: FFE00/0
+  1725 ;; Data sizes:     COMMON   BANK0   BANK1
+  1726 ;;      Params:         0       0       0
+  1727 ;;      Locals:         1       0       0
+  1728 ;;      Temps:          0       0       0
+  1729 ;;      Totals:         1       0       0
+  1730 ;;Total ram usage:        1 bytes
+  1731 ;; Hardware stack levels used:    1
+  1732 ;; Hardware stack levels required when called:    1
+  1733 ;; This function calls:
+  1734 ;;		Nothing
+  1735 ;; This function is called by:
+  1736 ;;		_SET_FAN_SPEED
+  1737 ;;		_main
+  1738 ;; This function uses a non-reentrant model
+  1739 ;;
+  1740  01B8                     _SET_PWM4_ON:	
+  1741                           
+  1742                           ; Regs used in _SET_PWM4_ON: [wreg+status,2]
+  1743                           ;SET_PWM4_ON@duty stored from wreg
+  1744  01B8  00F2               	movwf	SET_PWM4_ON@duty
+  1745  01B9  3032               	movlw	50
+  1746                           
+  1747                           ;MS83F_ADC_FAN.C: 166: TRISC3 = 1;
+  1748  01BA  1683               	bsf	3,5	;RP0=1, select bank1
+  1749  01BB  1587               	bsf	7,3
+  1750                           
+  1751                           ;MS83F_ADC_FAN.C: 167: PWM4CR0 = 0b00110010;
+  1752  01BC  1283               	bcf	3,5	;RP0=0, select bank2
+  1753  01BD  1703               	bsf	3,6	;RP1=1, select bank2
+  1754  01BE  0095               	movwf	21	;volatile
+  1755                           
+  1756                           ;MS83F_ADC_FAN.C: 168: PWM4CR1 = 0b10000000;
+  1757  01BF  3080               	movlw	128
+  1758  01C0  0096               	movwf	22	;volatile
+  1759                           
+  1760                           ;MS83F_ADC_FAN.C: 169: T4CKDIV = 7;
+  1761  01C1  3007               	movlw	7
+  1762  01C2  0097               	movwf	23	;volatile
+  1763                           
+  1764                           ;MS83F_ADC_FAN.C: 170: TMR4H = 0;
+  1765  01C3  0193               	clrf	19	;volatile
+  1766                           
+  1767                           ;MS83F_ADC_FAN.C: 171: TMR4L = 0;
+  1768  01C4  0192               	clrf	18	;volatile
+  1769                           
+  1770                           ;MS83F_ADC_FAN.C: 172: PR4L = duty;
+  1771  01C5  0872               	movf	SET_PWM4_ON@duty,w
+  1772  01C6  0094               	movwf	20	;volatile
+  1773                           
+  1774                           ;MS83F_ADC_FAN.C: 173: TMR4IF = 0;
+  1775  01C7  1016               	bcf	22,0
+  1776                           
+  1777                           ;MS83F_ADC_FAN.C: 174: TMR4ON = 1;
+  1778  01C8  1516               	bsf	22,2
+  1779  01C9                     l1116:	
+  1780                           ;MS83F_ADC_FAN.C: 175: while(TMR4IF==0) asm("clrwdt");
+  1781                           
+  1782  01C9  1283               	bcf	3,5	;RP0=0, select bank2
+  1783  01CA  1703               	bsf	3,6	;RP1=1, select bank2
+  1784  01CB  1816               	btfsc	22,0
+  1785  01CC  29CF               	goto	l1118
+  1786  01CD  0064               	clrwdt	;#
+  1787  01CE  29C9               	goto	l1116
+  1788  01CF                     l1118:	
+  1789                           
+  1790                           ;MS83F_ADC_FAN.C: 176: TRISC3 = 0;
+  1791  01CF  1683               	bsf	3,5	;RP0=1, select bank1
+  1792  01D0  1303               	bcf	3,6	;RP1=0, select bank1
+  1793  01D1  1187               	bcf	7,3
+  1794  01D2  0008               	return
+  1795  01D3                     __end_of_SET_PWM4_ON:	
+  1796                           
+  1797                           	psect	text533
+  1798  0236                     __ptext533:	
+  1799 ;; =============== function _SET_PWM4_ON ends ============
+  1800                           
+  1801                           
+  1802 ;; *************** function _PWM_INIT *****************
+  1803 ;; Defined at:
+  1804 ;;		line 149 in file "MS83F_ADC_FAN.C"
+  1805 ;; Parameters:    Size  Location     Type
+  1806 ;;		None
+  1807 ;; Auto vars:     Size  Location     Type
+  1808 ;;		None
+  1809 ;; Return value:  Size  Location     Type
+  1810 ;;		None               void
+  1811 ;; Registers used:
+  1812 ;;		status,2
+  1813 ;; Tracked objects:
+  1814 ;;		On entry : 17F/20
+  1815 ;;		On exit  : 17F/40
+  1816 ;;		Unchanged: FFE80/0
+  1817 ;; Data sizes:     COMMON   BANK0   BANK1
+  1818 ;;      Params:         0       0       0
+  1819 ;;      Locals:         0       0       0
+  1820 ;;      Temps:          0       0       0
+  1821 ;;      Totals:         0       0       0
+  1822 ;;Total ram usage:        0 bytes
+  1823 ;; Hardware stack levels used:    1
+  1824 ;; Hardware stack levels required when called:    1
+  1825 ;; This function calls:
+  1826 ;;		Nothing
+  1827 ;; This function is called by:
+  1828 ;;		_main
+  1829 ;; This function uses a non-reentrant model
+  1830 ;;
+  1831  0236                     _PWM_INIT:	
+  1832                           
+  1833                           ;MS83F_ADC_FAN.C: 150: PWM3CR0 = 0b00000000;
+  1834                           
+  1835                           ; Regs used in _PWM_INIT: [status,2]
+  1836  0236  1283               	bcf	3,5	;RP0=0, select bank2
+  1837  0237  1703               	bsf	3,6	;RP1=1, select bank2
+  1838  0238  018F               	clrf	15	;volatile
+  1839                           
+  1840                           ;MS83F_ADC_FAN.C: 151: PWM3CR1 = 0b00000000;
+  1841  0239  0190               	clrf	16	;volatile
+  1842                           
+  1843                           ;MS83F_ADC_FAN.C: 152: PWM4CR0 = 0b00000000;
+  1844  023A  0195               	clrf	21	;volatile
+  1845                           
+  1846                           ;MS83F_ADC_FAN.C: 153: PWM4CR1 = 0b00000000;
+  1847  023B  0196               	clrf	22	;volatile
+  1848                           
+  1849                           ;MS83F_ADC_FAN.C: 154: PWM5CR0 = 0b00000000;
+  1850  023C  019B               	clrf	27	;volatile
+  1851                           
+  1852                           ;MS83F_ADC_FAN.C: 155: PWM5CR1 = 0b00000000;
+  1853  023D  019C               	clrf	28	;volatile
+  1854  023E  0008               	return
+  1855  023F                     __end_of_PWM_INIT:	
+  1856                           
+  1857                           	psect	text534
+  1858  023F                     __ptext534:	
+  1859 ;; =============== function _PWM_INIT ends ============
+  1860                           
+  1861                           
+  1862 ;; *************** function _DELAY_1MS *****************
+  1863 ;; Defined at:
+  1864 ;;		line 118 in file "MS83F_ADC_FAN.C"
+  1865 ;; Parameters:    Size  Location     Type
+  1866 ;;		None
+  1867 ;; Auto vars:     Size  Location     Type
+  1868 ;;  a               1    2[COMMON] unsigned char 
+  1869 ;; Return value:  Size  Location     Type
+  1870 ;;		None               void
+  1871 ;; Registers used:
+  1872 ;;		wreg, status,2, status,0
+  1873 ;; Tracked objects:
+  1874 ;;		On entry : 0/20
+  1875 ;;		On exit  : 0/0
+  1876 ;;		Unchanged: FFE00/0
+  1877 ;; Data sizes:     COMMON   BANK0   BANK1
+  1878 ;;      Params:         0       0       0
+  1879 ;;      Locals:         1       0       0
+  1880 ;;      Temps:          0       0       0
+  1881 ;;      Totals:         1       0       0
+  1882 ;;Total ram usage:        1 bytes
+  1883 ;; Hardware stack levels used:    1
+  1884 ;; Hardware stack levels required when called:    1
+  1885 ;; This function calls:
+  1886 ;;		Nothing
+  1887 ;; This function is called by:
+  1888 ;;		_DELAY_MS
+  1889 ;; This function uses a non-reentrant model
+  1890 ;;
+  1891  023F                     _DELAY_1MS:	
+  1892                           
+  1893                           ;MS83F_ADC_FAN.C: 119: unsigned char a;
+  1894                           ;MS83F_ADC_FAN.C: 121: for(a=0;a<250;a++)
+  1895                           
+  1896                           ; Regs used in _DELAY_1MS: [wreg+status,2+status,0]
+  1897  023F  01F2               	clrf	DELAY_1MS@a
+  1898  0240                     l1102:	
+  1899  0240  0064               	clrwdt	;#
+  1900  0241  30FA               	movlw	250
+  1901  0242  0AF2               	incf	DELAY_1MS@a,f
+  1902  0243  0272               	subwf	DELAY_1MS@a,w
+  1903  0244  1803               	btfsc	3,0
+  1904  0245  0008               	return
+  1905  0246  2A40               	goto	l1102
+  1906  0247                     __end_of_DELAY_1MS:	
+  1907                           
+  1908                           	psect	text535
+  1909  0247                     __ptext535:	
+  1910 ;; =============== function _DELAY_1MS ends ============
+  1911                           
+  1912                           
+  1913 ;; *************** function _DELAY_30US *****************
+  1914 ;; Defined at:
+  1915 ;;		line 77 in file "MS83F_ADC_FAN.C"
+  1916 ;; Parameters:    Size  Location     Type
+  1917 ;;		None
+  1918 ;; Auto vars:     Size  Location     Type
+  1919 ;;  a               1    2[COMMON] unsigned char 
+  1920 ;; Return value:  Size  Location     Type
+  1921 ;;		None               void
+  1922 ;; Registers used:
+  1923 ;;		wreg, status,2, status,0
+  1924 ;; Tracked objects:
+  1925 ;;		On entry : 60/0
+  1926 ;;		On exit  : 0/0
+  1927 ;;		Unchanged: FFE00/0
+  1928 ;; Data sizes:     COMMON   BANK0   BANK1
+  1929 ;;      Params:         0       0       0
+  1930 ;;      Locals:         1       0       0
+  1931 ;;      Temps:          0       0       0
+  1932 ;;      Totals:         1       0       0
+  1933 ;;Total ram usage:        1 bytes
+  1934 ;; Hardware stack levels used:    1
+  1935 ;; Hardware stack levels required when called:    1
+  1936 ;; This function calls:
+  1937 ;;		Nothing
+  1938 ;; This function is called by:
+  1939 ;;		_GET_ADC_VALUE
+  1940 ;; This function uses a non-reentrant model
+  1941 ;;
+  1942  0247                     _DELAY_30US:	
+  1943                           
+  1944                           ;MS83F_ADC_FAN.C: 78: unsigned char a;
+  1945                           ;MS83F_ADC_FAN.C: 80: for(a=0;a<6;a++)
+  1946                           
+  1947                           ; Regs used in _DELAY_30US: [wreg+status,2+status,0]
+  1948  0247  01F2               	clrf	DELAY_30US@a
+  1949  0248                     l1085:	
+  1950  0248  0064               	clrwdt	;#
+  1951  0249  3006               	movlw	6
+  1952  024A  0AF2               	incf	DELAY_30US@a,f
+  1953  024B  0272               	subwf	DELAY_30US@a,w
+  1954  024C  1803               	btfsc	3,0
+  1955  024D  0008               	return
+  1956  024E  2A48               	goto	l1085
+  1957  024F                     __end_of_DELAY_30US:	
+  1958                           
+  1959                           	psect	text536
+  1960  0255                     __ptext536:	
+  1961 ;; =============== function _DELAY_30US ends ============
+  1962                           
+  1963                           
+  1964 ;; *************** function _ADC_INIT *****************
+  1965 ;; Defined at:
+  1966 ;;		line 63 in file "MS83F_ADC_FAN.C"
+  1967 ;; Parameters:    Size  Location     Type
+  1968 ;;		None
+  1969 ;; Auto vars:     Size  Location     Type
+  1970 ;;		None
+  1971 ;; Return value:  Size  Location     Type
+  1972 ;;		None               void
+  1973 ;; Registers used:
+  1974 ;;		wreg
+  1975 ;; Tracked objects:
+  1976 ;;		On entry : 17F/20
+  1977 ;;		On exit  : 17F/20
+  1978 ;;		Unchanged: FFE80/0
+  1979 ;; Data sizes:     COMMON   BANK0   BANK1
+  1980 ;;      Params:         0       0       0
+  1981 ;;      Locals:         0       0       0
+  1982 ;;      Temps:          0       0       0
+  1983 ;;      Totals:         0       0       0
+  1984 ;;Total ram usage:        0 bytes
+  1985 ;; Hardware stack levels used:    1
+  1986 ;; Hardware stack levels required when called:    1
+  1987 ;; This function calls:
+  1988 ;;		Nothing
+  1989 ;; This function is called by:
+  1990 ;;		_main
+  1991 ;; This function uses a non-reentrant model
+  1992 ;;
+  1993  0255                     _ADC_INIT:	
+  1994                           
+  1995                           ;MS83F_ADC_FAN.C: 65: ANSEL = 0B11000000;
+  1996                           
+  1997                           ; Regs used in _ADC_INIT: [wreg]
+  1998  0255  30C0               	movlw	192
+  1999  0256  0091               	movwf	17	;volatile
+  2000                           
+  2001                           ;MS83F_ADC_FAN.C: 66: ADCON1 = 0B01100000;
+  2002  0257  3060               	movlw	96
+  2003  0258  009F               	movwf	31	;volatile
+  2004  0259  0008               	return
+  2005  025A                     __end_of_ADC_INIT:	
+  2006                           
+  2007                           	psect	text537
+  2008  01EC                     __ptext537:	
+  2009 ;; =============== function _ADC_INIT ends ============
+  2010                           
+  2011                           
+  2012 ;; *************** function _DEVICE_INIT *****************
+  2013 ;; Defined at:
+  2014 ;;		line 36 in file "MS83F_ADC_FAN.C"
+  2015 ;; Parameters:    Size  Location     Type
+  2016 ;;		None
+  2017 ;; Auto vars:     Size  Location     Type
+  2018 ;;		None
+  2019 ;; Return value:  Size  Location     Type
+  2020 ;;		None               void
+  2021 ;; Registers used:
+  2022 ;;		wreg, status,2
+  2023 ;; Tracked objects:
+  2024 ;;		On entry : 17F/0
+  2025 ;;		On exit  : 17F/20
+  2026 ;;		Unchanged: FFE80/0
+  2027 ;; Data sizes:     COMMON   BANK0   BANK1
+  2028 ;;      Params:         0       0       0
+  2029 ;;      Locals:         0       0       0
+  2030 ;;      Temps:          0       0       0
+  2031 ;;      Totals:         0       0       0
+  2032 ;;Total ram usage:        0 bytes
+  2033 ;; Hardware stack levels used:    1
+  2034 ;; Hardware stack levels required when called:    1
+  2035 ;; This function calls:
+  2036 ;;		Nothing
+  2037 ;; This function is called by:
+  2038 ;;		_main
+  2039 ;; This function uses a non-reentrant model
+  2040 ;;
+  2041  01EC                     _DEVICE_INIT:	
+  2042                           
+  2043                           ;MS83F_ADC_FAN.C: 37: OSCCON = 0B01010001;
+  2044                           
+  2045                           ; Regs used in _DEVICE_INIT: [wreg+status,2]
+  2046  01EC  3051               	movlw	81
+  2047  01ED  1683               	bsf	3,5	;RP0=1, select bank1
+  2048  01EE  008F               	movwf	15	;volatile
+  2049                           
+  2050                           ;MS83F_ADC_FAN.C: 41: INTCON = 0B00000000;
+  2051  01EF  018B               	clrf	11	;volatile
+  2052                           
+  2053                           ;MS83F_ADC_FAN.C: 43: CMCON0 = 0B00000111;
+  2054  01F0  3007               	movlw	7
+  2055  01F1  1283               	bcf	3,5	;RP0=0, select bank0
+  2056  01F2  0099               	movwf	25	;volatile
+  2057                           
+  2058                           ;MS83F_ADC_FAN.C: 45: PORTA = 0B00000000;
+  2059  01F3  0185               	clrf	5	;volatile
+  2060                           
+  2061                           ;MS83F_ADC_FAN.C: 46: TRISA = 0B10111111;
+  2062  01F4  30BF               	movlw	191
+  2063  01F5  1683               	bsf	3,5	;RP0=1, select bank1
+  2064  01F6  0085               	movwf	5	;volatile
+  2065                           
+  2066                           ;MS83F_ADC_FAN.C: 47: WPUA = 0B00000000;
+  2067  01F7  0195               	clrf	21	;volatile
+  2068                           
+  2069                           ;MS83F_ADC_FAN.C: 49: PORTC = 0B00000000;
+  2070  01F8  1283               	bcf	3,5	;RP0=0, select bank0
+  2071  01F9  0187               	clrf	7	;volatile
+  2072                           
+  2073                           ;MS83F_ADC_FAN.C: 50: TRISC = 0B00111111;
+  2074  01FA  303F               	movlw	63
+  2075  01FB  1683               	bsf	3,5	;RP0=1, select bank1
+  2076  01FC  0087               	movwf	7	;volatile
+  2077                           
+  2078                           ;MS83F_ADC_FAN.C: 51: WPUC = 0B00000000;
+  2079  01FD  0188               	clrf	8	;volatile
+  2080                           
+  2081                           ;MS83F_ADC_FAN.C: 53: OPTION = 0B00001000;
+  2082  01FE  3008               	movlw	8
+  2083  01FF  0081               	movwf	1	;volatile
+  2084  0200  0008               	return
+  2085  0201                     __end_of_DEVICE_INIT:	
+  2086                           
+  2087                           	psect	text538
+  2088  0222                     __ptext538:	
+  2089 ;; =============== function _DEVICE_INIT ends ============
+  2090                           
+  2091                           
+  2092 ;; *************** function _ISR *****************
+  2093 ;; Defined at:
+  2094 ;;		line 203 in file "MS83F_ADC_FAN.C"
+  2095 ;; Parameters:    Size  Location     Type
+  2096 ;;		None
+  2097 ;; Auto vars:     Size  Location     Type
+  2098 ;;		None
+  2099 ;; Return value:  Size  Location     Type
+  2100 ;;		None               void
+  2101 ;; Registers used:
+  2102 ;;		None
+  2103 ;; Tracked objects:
+  2104 ;;		On entry : 0/0
+  2105 ;;		On exit  : 0/0
+  2106 ;;		Unchanged: FFFFF/0
+  2107 ;; Data sizes:     COMMON   BANK0   BANK1
+  2108 ;;      Params:         0       0       0
+  2109 ;;      Locals:         0       0       0
+  2110 ;;      Temps:          2       0       0
+  2111 ;;      Totals:         2       0       0
+  2112 ;;Total ram usage:        2 bytes
+  2113 ;; Hardware stack levels used:    1
+  2114 ;; This function calls:
+  2115 ;;		Nothing
+  2116 ;; This function is called by:
+  2117 ;;		Interrupt level 1
+  2118 ;; This function uses a non-reentrant model
+  2119 ;;
+  2120  0222                     _ISR:	
+  2121                           
+  2122                           ;MS83F_ADC_FAN.C: 204: if(INTE&&INTF)
+  2123  0222  1A0B               	btfsc	11,4
+  2124  0223  1C8B               	btfss	11,1
+  2125  0224  2A26               	goto	i1l1132
+  2126                           
+  2127                           ;MS83F_ADC_FAN.C: 205: {
+  2128                           ;MS83F_ADC_FAN.C: 206: INTF = 0;
+  2129  0225  108B               	bcf	11,1
+  2130  0226                     i1l1132:	
+  2131  0226  0871               	movf	??_ISR+1,w
+  2132  0227  008A               	movwf	10
+  2133  0228  0E70               	swapf	??_ISR^(0+-128),w
+  2134  0229  0083               	movwf	3
+  2135  022A  0EFE               	swapf	126,f
+  2136  022B  0E7E               	swapf	126,w
+  2137  022C  0009               	retfie
+  2138  022D                     __end_of_ISR:	
+  2139                           
+  2140                           	psect	intentry
+  2141  0004                     __pintentry:	
+  2142                           ; Regs used in _ISR: []
+  2143                           
+  2144  0004                     interrupt_function:	
+  2145  007E                     saved_w	set	btemp
+  2146  0004  00FE               	movwf	btemp
+  2147  0005  0E03               	swapf	3,w
+  2148  0006  00F0               	movwf	??_ISR
+  2149  0007  080A               	movf	10,w
+  2150  0008  00F1               	movwf	??_ISR+1
+  2151  0009  2A22               	ljmp	_ISR
+  2152                           
+  2153                           	psect	text539
+  2154  0000                     __ptext539:	
+  2155 ;; =============== function _ISR ends ============
+  2156                           
+  2157  007E                     btemp	set	126	;btemp
+  2158  007E                     wtemp0	set	126
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sat Jun 20 17:21:23 2020
+
+           ??_GET_ADC_VALUE 0075          __size_of_DELAY_1MS 0008                         _GIE 005F  
+                       _PC1 0039                         _PA6 002E                         _PC3 003B  
+                       _ISR 0222                         _SR0 0CF6                         _SR1 0CF7  
+                       u920 0000                         u825 0187                         u915 001B  
+                       u925 0033         __end_of_GetKeyEvent 01B8         __size_of_DELAY_30US 0008  
+                      ?_ISR 0070                        l1102 0240                        l1110 0000  
+                      l1104 0000                        l1113 0000                        l1116 01C9  
+                      l1118 01CF                        l1119 0000                        l1135 0000  
+                      l1082 0000                        l1138 0000                        l3010 0000  
+                      l3002 0000                        l1171 00C0                        l1148 0000  
+                      l3020 0000                        l1172 00B6                        l3012 00D3  
+                      l1085 0248                        l3030 0000                        l3022 0000  
+                      l3014 0000                        l3006 00CB                        l1079 0000  
+                      l1087 0000                        l1096 0127                        l3040 0000  
+                      l3032 0000                        l3024 0000                        l3016 0000  
+                      l3008 0000                        l1169 00A7                        l3034 0000  
+                      l3026 0000                        l3042 00FF                        l1099 0000  
+                      l3036 0000                        l3028 0000                        l3044 0102  
+                      l3038 0000                        l2600 0000                        l2610 0000  
+                      l2602 0000                        l2620 01B5                        l2604 0000  
+                      l2700 022F                        l2550 0000                        l2622 01B6  
+                      l2614 01AB                        l2710 0213                        l2702 0000  
+                      l2560 0000                        l2552 0000                        l2704 020D  
+                      l2562 0000                        l2554 0000                        l2706 020F  
+                      l2556 0000                        l2548 0000                        l2564 0000  
+                      l1932 0000                        l2900 0113                        l2708 0211  
+                      l2558 0000                        l2582 0000                        l2590 0000  
+                      l2902 0000                        l2584 0000                        l2576 0000  
+                      l2592 0000                        l2912 0000                        l2904 0117  
+                      l1929 0141                        l2850 0000                        l2586 0000  
+                      l2594 0000                        l2914 0000                        l2922 01D3  
+                      l2930 0048                        l1867 0000                        l2852 0000  
+                      l2844 0000                        l2596 0000                        l2588 0000  
+                      l2916 012D                        l2908 011D                        l2924 0000  
+                      l2598 0000                        l2870 0000                        l2854 0000  
+                      l2918 0000                        l2694 0000                        l2950 0075  
+                      l2942 0063                        l2934 0051                        l2926 0000  
+                      l2864 017E                        l2856 0000                        l2880 0000  
+                      l2960 0000                        l2874 0000                        l2866 0000  
+                      l2698 0000                        l2970 0000                        l2962 0000  
+                      l2954 0000                        l2946 006C                        l2938 005A  
+                      l2876 0195                        l2884 0157                        l2892 0000  
+                      l2972 0000                        l2980 0000                        l2886 0000  
+                      l2894 0000                        l2966 0000                        l2958 007A  
+                      l2990 0000                        l2982 0000                        l2974 0000  
+                      l2896 0000                        l2992 0000                        l2976 0000  
+                      l2994 0000                        l2978 0000                        l2988 00B4  
+                      l2998 0000                        _ADON 00F8                        u1005 009E  
+                      _INTE 005C                        _INTF 0059                        _PR4L 0114  
+                      _STRA 0CE8                        _STRB 0CE9                        _STRC 0CEA  
+                      _STRD 0CEB                        _WREN 0C62                        _WPUA 0095  
+                      _WPUC 0088            __end_of_ADC_INIT 025A                        _main 00A3  
+                      btemp 007E                        start 000A            __end_of_DELAY_MS 0236  
+                     ??_ISR 0070                       _C1SEN 0CF5                       _C2REN 0CF4  
+                     ?_main 0070                       _EEPGD 0C67                       _ANSEL 0091  
+          __end_of_INT_INIT 0255             __end_of___lwdiv 019A                       _TMR4H 0113  
+                     _TMR4L 0112                       _PORTA 0005                       _PORTC 0007  
+                     _SRCON 019E                       _PULSR 0CF2                       _PULSS 0CF3  
+                     _TRISA 0085                       _TRISC 0087         ___lmul@multiplicand 0076  
+      __size_of_DEVICE_INIT 0015            __end_of_PWM_INIT 023F              __pbitbssCOMMON 03D0  
+                     pclath 000A           __end_of_DELAY_1MS 0247                       status 0003  
+                     wtemp0 007E                __end_of_main 0105        __end_of_detect_block 00A3  
+               _GetKeyEvent 019A          __size_of_SYS_SLEEP 0019                      ??_main 007A  
+                    _ADCON0 001F                      _ADCON1 009F                      _ADRESH 001E  
+                    _ADRESL 009E                      _CMCON0 0019                      i1l1132 0226  
+                    i1l2298 0000                      _INTEDG 040E                      _INTCON 000B  
+                    _OSCCON 008F                      _TMR4IF 08B0       __end_of_SET_FAN_SPEED 0215  
+                    _OPTION 0081                      _TMR4ON 08B2                      _TRISC3 043B  
+                    _SLVREN 00DC                      _SWDTEN 00C0                   DELAY_MS@a 0074  
+              ??_DELAY_30US 0072                ?_SET_PWM4_ON 0070                      ___lmul 013D  
+                 ??___lwdiv 0076           detect_block@limit 002A                   ?_ADC_INIT 0070  
+                    saved_w 007E                   ?_DELAY_MS 0070          __end_of_DELAY_30US 024F  
+         __end_of_SYS_SLEEP 01EC                   ?_INT_INIT 0070              __pcstackCOMMON 0070  
+                 ?_PWM_INIT 0070                  ??_ADC_INIT 0072                  ??_DELAY_MS 0073  
+                __pbssBANK0 002C       __size_of_detect_block 0098  GET_ADC_VALUE@TempADCBuffer 0077  
+                ??_INT_INIT 0072                  __pmaintext 00A3                     ?___lmul 0072  
+                __pintentry 0004       __end_of_GET_ADC_VALUE 013D              ___lmul@product 0020  
+                ??_PWM_INIT 0072                     _T4CKDIV 0117                     _GO_DONE 00F9  
+                   _PWM3CR0 010F                     _PWM3CR1 0110                     _PWM4CR0 0115  
+                   _PWM4CR1 0116                     _PWM5CR0 011B                     _PWM5CR1 011C  
+                   _PSTRCON 019D                  DELAY_1MS@a 0072                _detect_block 000B  
+                   _STRSYNC 0CEC                   _DELAY_1MS 023F        __size_of_SET_PWM4_ON 001B  
+              ?_GetKeyEvent 0070             __size_of___lmul 0033                     ___lwdiv 0170  
+             ??_DEVICE_INIT 0072                __size_of_ISR 000B           GET_ADC_VALUE@Vref 0073  
+                   main@key 002B        end_of_initialization 0220                  ?_DELAY_1MS 0070  
+         __size_of_ADC_INIT 0005         __end_of_DEVICE_INIT 0201           __size_of_DELAY_MS 0009  
+              DELAY_MS@Time 0073                   _SYS_SLEEP 01D3           __size_of_INT_INIT 0006  
+            __end_of___lmul 0170      __size_of_SET_FAN_SPEED 0014           __size_of_PWM_INIT 0009  
+       start_initialization 0215                 __end_of_ISR 022D          SET_FAN_SPEED@speed 0073  
+                ?_SYS_SLEEP 0070                 ??_DELAY_1MS 0072                    ??___lmul 007A  
+      __size_of_GetKeyEvent 001E                 _DEVICE_INIT 01EC                 __pbssCOMMON 007B  
+             __pcstackBANK0 0020               _SET_FAN_SPEED 0201            ___lwdiv@dividend 0074  
+                 _fan_speed 0034                   __ptext530 019A                   __ptext522 0000  
+                 __ptext531 024F                   __ptext523 000B                   __ptext532 01B8  
+                 __ptext524 01D3                   __ptext533 0236                   __ptext525 0201  
+                 __ptext534 023F                   __ptext526 022D                   __ptext535 0247  
+                 __ptext527 0105                   __ptext536 0255                   __ptext528 013D  
+                 __ptext537 01EC                   __ptext529 0170                   __ptext538 0222  
+                 __ptext539 0000                    ?___lwdiv 0072                    _ADC_INIT 0255  
+                  _DELAY_MS 022D                   _is_led_on 03D0            ___lwdiv@quotient 0077  
+        GetKeyEvent@keytime 007B      __size_of_GET_ADC_VALUE 0038           interrupt_function 0004  
+            ?_SET_FAN_SPEED 0070                 ??_SYS_SLEEP 0072               ??_SET_PWM4_ON 0072  
+                  _INT_INIT 024F                 DELAY_30US@a 0072                    _PWM_INIT 0236  
+             detect_block@i 0029                    _Buff_AN6 002C                    _Buff_AN7 002E  
+         ___lmul@multiplier 0072                  _DELAY_30US 0247                    _Val_Volt 0030  
+       __end_of_SET_PWM4_ON 01D3            __size_of___lwdiv 002A               _GET_ADC_VALUE 0105  
+           ___lwdiv@divisor 0072             ___lwdiv@counter 0076             ??_SET_FAN_SPEED 0073  
+      GetKeyEvent@key_event 0072               __size_of_main 0062              ?_GET_ADC_VALUE 0073  
+           SET_PWM4_ON@duty 0072      GET_ADC_VALUE@ChannelNO 0076                ?_DEVICE_INIT 0070  
+             _over_load_cnt 0032               ?_detect_block 0070     GET_ADC_VALUE@TempAdcon0 0079  
+                  intlevel1 0000                 ?_DELAY_30US 0070                 _SET_PWM4_ON 01B8  
+             ??_GetKeyEvent 0072              ??_detect_block 0024  
